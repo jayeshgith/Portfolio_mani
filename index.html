@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manish Gowda Kunthoor | Professional Portfolio</title>
+    <link rel="icon" href="/public/portfolio-icon.svg" type="image/svg+xml" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1e40af",
+              secondary: "#4f46e5",
+              accent: "#10b981",
+              darkBg: "#111827",
+              lightText: "#f3f4f6",
+              neutral: "#6b7280",
+              borderGray: "#d1d5db",
+            },
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            animation: {
+              "fade-in": "fadeIn 1s ease-in-out",
+              "slide-up": "slideUp 0.8s ease-out",
+              "scale-in": "scaleIn 0.5s ease-out",
+              "bounce-in": "bounceIn 1.5s ease-in-out",
+              "gradient-flow": "gradientFlow 5s ease infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              slideUp: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              scaleIn: {
+                "0%": { transform: "scale(0.95)", opacity: "0" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+              bounceIn: {
+                "0%": { transform: "scale(0.5)", opacity: "0" },
+                "50%": { transform: "scale(1.1)", opacity: "1" },
+                "100%": { transform: "scale(1)" },
+              },
+              gradientFlow: {
+                "0%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+                "100%": { backgroundPosition: "0% 50%" },
+              },
+            },
+            boxShadow: {
+              custom:
+                "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05)",
+              hover:
+                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            },
+          },
+        },
+        darkMode: "class",
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        overflow-x: hidden;
+        background-color: #f9fafb;
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+      .animate-slide-up {
+        animation: slideUp 0.8s ease-out;
+      }
+      .animate-scale-in {
+        animation: scaleIn 0.5s ease-out;
+      }
+      .animate-bounce-in {
+        animation: bounceIn 1.5s ease-in-out;
+      }
+      .animate-gradient-flow {
+        animation: gradientFlow 5s ease infinite;
+        background-size: 200% 200%;
+      }
+      .delay-100 {
+        animation-delay: 100ms;
+      }
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      .delay-300 {
+        animation-delay: 300ms;
+      }
+      .delay-400 {
+        animation-delay: 400ms;
+      }
+      .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .glassmorphism {
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        backdrop-filter: blur(5px);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .section-divider {
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #10b981,
+          transparent
+        );
+        margin: 2rem 0;
+      }
+      .social-icon {
+        transition: all 0.3s ease;
+      }
+      .social-icon:hover {
+        color: #10b981;
+        transform: scale(1.2) rotate(10deg);
+      }
+      .card {
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        background-color: #10b981;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+      .timeline-container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+      .timeline-container.left {
+        left: 0;
+      }
+      .timeline-container.right {
+        left: 50%;
+      }
+      .timeline-container::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: white;
+        border: 3px solid #10b981;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .right::after {
+        left: -10px;
+      }
+      .timeline-content {
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .contact-input {
+        transition: all 0.3s ease;
+      }
+      .contact-input:focus {
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+        border-color: #10b981;
+        transform: scale(1.02);
+      }
+      .skill-tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        background: #e5e7eb;
+        color: #111827;
+        font-size: 0.875rem;
+        margin: 0.25rem;
+        transition: all 0.3s ease;
+      }
+      .skill-tag:hover {
+        background: #10b981;
+        color: white;
+        transform: scale(1.1);
+      }
+      .cert-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        background: #10b981;
+        color: white;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .cert-badge:hover {
+        background: #059669;
+        transform: scale(1.1);
+      }
+      .project-card {
+        perspective: 1000px;
+      }
+      .project-card-inner {
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+      .project-card:hover .project-card-inner {
+        transform: rotateY(180deg);
+      }
+      .project-front,
+      .project-back {
+        backface-visibility: hidden;
+      }
+      .project-back {
+        transform: rotateY(180deg);
+        background: #10b981;
+        color: white;
+        padding: 1rem;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <div id="root"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script>
+      const { useState, useEffect } = React;
+
+      const USER_NAME = "Manish Kunthoor";
+      const HERO_TAGLINE =
+        "Full-Stack Developer | MERN Stack | REST API Developer";
+      const EMAIL = "manishkunthoor@gmail.com";
+      const PHONE = "+91 7019974493";
+      const LINKEDIN =
+        "https://www.linkedin.com/in/manish-gowda-kunthoor-99ba00279";
+      const GITHUB = "https://github.com/jayeshgith";
+      const DarkModeToggle = () => {
+        const [darkMode, setDarkMode] = React.useState(false);
+        const [position, setPosition] = React.useState({
+          top: "80%",
+          left: "80%",
+        });
+
+        React.useEffect(() => {
+          if (darkMode) {
+            document.body.classList.add("dark");
+          } else {
+            document.body.classList.remove("dark");
+          }
+        }, [darkMode]);
+
+        React.useEffect(() => {
+          const interval = setInterval(() => {
+            const top = Math.floor(Math.random() * 80) + 10 + "%";
+            const left = Math.floor(Math.random() * 80) + 10 + "%";
+            setPosition({ top, left });
+          }, 3000);
+
+          return () => clearInterval(interval);
+        }, []);
+
+        return React.createElement(
+          "span",
+          {
+            onClick: () => setDarkMode(!darkMode),
+            style: {
+              top: position.top,
+              left: position.left,
+              transition: "all 1s ease-in-out",
+              position: "fixed",
+              cursor: "pointer",
+              fontSize: "2rem",
+            },
+          },
+          darkMode ? "☀️" : "🌙"
+        );
+      };
+      const Navbar = () =>
+        React.createElement(
+          "nav",
+          {
+            className:
+              "fixed top-0 left-0 w-full z-50 bg-white/20 dark:bg-black/20 backdrop-blur-xl shadow-md",
+          },
+          React.createElement(
+            "div",
+            {
+              className:
+                "container mx-auto px-6 py-4 flex justify-between items-center",
+            },
+
+            React.createElement(
+              "h1",
+              {
+                className:
+                  "text-2xl font-extrabold tracking-wide text-gray-900 dark:text-white",
+              },
+              "Manish Kunthoor"
+            ),
+
+            React.createElement(
+              "ul",
+              {
+                className:
+                  "hidden md:flex space-x-6 text-gray-900 dark:text-gray-200 font-medium",
+              },
+              [
+                "Home",
+                "About",
+                "Education",
+                "Skills",
+                "Projects",
+                "Certifications",
+                "Contact",
+              ].map((item) =>
+                React.createElement(
+                  "li",
+                  { key: item },
+                  React.createElement(
+                    "a",
+                    {
+                      href: `#${item.toLowerCase()}`,
+                      className:
+                        "relative px-3 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 hover:text-white hover:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-black",
+                    },
+
+                    item,
+
+                    React.createElement("span", {
+                      className:
+                        "absolute left-0 -bottom-1 w-0 h-1 bg-blue-500 dark:bg-blue-300 transition-all duration-300 hover:w-full",
+                    })
+                  )
+                )
+              )
+            ),
+
+            React.createElement(DarkModeToggle)
+          )
+        );
+
+      const Hero = () =>
+        React.createElement(
+          "section",
+          {
+            id: "home",
+            className:
+              "min-h-screen flex flex-col items-center justify-center text-center px-6 py-24 " +
+              "bg-gradient-to-br from-purple-600 via-indigo-700 to-blue-900 " +
+              "dark:from-gray-900 dark:via-gray-800 dark:to-black " +
+              "text-white animate-fade-in transition-colors duration-500",
+          },
+
+          React.createElement(
+            "div",
+            { className: "container mx-auto flex flex-col items-center" },
+
+            React.createElement("img", {
+              src: "photo.jpg",
+              alt: "Manish Kunthoor",
+              className:
+                "w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mb-6 shadow-2xl border-4 border-white/30 dark:border-gray-200 transition-transform transform hover:scale-105",
+            }),
+
+            React.createElement(
+              "h1",
+              {
+                className:
+                  "text-5xl md:text-6xl font-extrabold mb-4 tracking-tight " +
+                  "text-white drop-shadow-2xl animate-slide-up",
+              },
+              "Manish Kunthoor"
+            ),
+
+            React.createElement(
+              "p",
+              {
+                className:
+                  "text-lg md:text-xl mb-8 font-medium opacity-90 animate-slide-up delay-100",
+              },
+              "Full-Stack Developer | MERN Stack | REST API Developer"
+            ),
+
+            React.createElement(
+              "a",
+              {
+                href: "#contact",
+                className:
+                  "px-12 py-3 rounded-full font-semibold " +
+                  "bg-white/20 backdrop-blur-md border border-white/30 " +
+                  "hover:bg-white/30 hover:text-black dark:hover:text-white " +
+                  "shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-fade-in delay-200",
+                "aria-label": "Connect with Me",
+              },
+              "Connect with Me"
+            ),
+
+            React.createElement(
+              "div",
+              {
+                className:
+                  "mt-10 flex justify-center space-x-6 animate-slide-up delay-300",
+              },
+
+              React.createElement(
+                "a",
+                {
+                  href: LINKEDIN,
+                  className:
+                    "p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 " +
+                    "hover:bg-white/20 transition-all hover:scale-110 shadow-lg text-white " +
+                    "flex items-center justify-center text-2xl",
+                  target: "_blank",
+                  rel: "noreferrer",
+                  "aria-label": "LinkedIn",
+                },
+                React.createElement("i", { className: "fab fa-linkedin" })
+              ),
+
+              React.createElement(
+                "a",
+                {
+                  href: GITHUB,
+                  className:
+                    "p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 " +
+                    "hover:bg-white/20 transition-all hover:scale-110 shadow-lg text-white " +
+                    "flex items-center justify-center text-2xl",
+                  target: "_blank",
+                  rel: "noreferrer",
+                  "aria-label": "GitHub",
+                },
+                React.createElement("i", { className: "fab fa-github" })
+              ),
+
+              React.createElement(
+                "a",
+                {
+                  href: `mailto:${EMAIL}`,
+                  className:
+                    "p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 " +
+                    "hover:bg-white/20 transition-all hover:scale-110 shadow-lg text-white " +
+                    "flex items-center justify-center text-2xl",
+                  "aria-label": "Email",
+                },
+                React.createElement("i", { className: "fas fa-envelope" })
+              ),
+
+              React.createElement(
+                "a",
+                {
+                  href: `tel:${PHONE}`,
+                  className:
+                    "p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 " +
+                    "hover:bg-white/20 transition-all hover:scale-110 shadow-lg text-white " +
+                    "flex items-center justify-center text-2xl",
+                  "aria-label": "Phone",
+                },
+                React.createElement("i", { className: "fas fa-phone" })
+              )
+            )
+          )
+        );
+
+      const About = () =>
+        React.createElement(
+          "section",
+          {
+            id: "about",
+            className:
+              "py-24 min-h-screen flex items-center " +
+              "bg-gradient-to-br from-orange-600 via-purple-700 to-blue-900 " +
+              "dark:from-gray-900 dark:via-gray-800 dark:to-black " +
+              "transition-colors duration-500",
+          },
+
+          React.createElement(
+            "div",
+            { className: "container mx-auto px-6" },
+
+            React.createElement(
+              "h2",
+              {
+                className:
+                  "text-4xl md:text-5xl font-extrabold text-center mb-12 " +
+                  "text-gray-900 dark:text-white tracking-wide animate-slide-up transition-colors duration-500",
+              },
+              "About Me"
+            ),
+
+            React.createElement(
+              "div",
+              {
+                className:
+                  "max-w-4xl mx-auto p-10 rounded-3xl backdrop-blur-lg shadow-2xl " +
+                  "bg-white/20 dark:bg-white/10 border border-white/30 " +
+                  "text-gray-900 dark:text-gray-100 leading-relaxed " +
+                  "space-y-6 animate-fade-in transition-all duration-500 hover:scale-105 hover:shadow-3xl",
+              },
+
+              React.createElement(
+                "p",
+                { className: "text-lg md:text-xl animate-slide-up" },
+                "I am an enthusiastic student with a strong foundation in web technologies, aspiring Full-Stack Developer passionate about creating responsive and user-friendly web applications. I am proficient in NodeJS, HTML, CSS, JavaScript, React.js, MongoDB, SQL, REST APIs, and Git. I enjoy learning and building real-world projects."
+              ),
+
+              React.createElement(
+                "p",
+                { className: "text-lg md:text-xl animate-slide-up delay-100" },
+                "I am passionate about exploring and mastering new technologies to craft innovative and impactful solutions. I have completed internships and projects that strengthened my practical skills in web development and AI integration."
+              ),
+
+              React.createElement("div", {
+                className:
+                  "w-24 h-1 mx-auto mt-6 rounded-full bg-white/50 dark:bg-gray-200 animate-scale-in",
+              })
+            )
+          )
+        );
+
+      const Education = () =>
+        React.createElement(
+          "section",
+          {
+            id: "education",
+            className:
+              "py-20 bg-gradient-to-r from-[#4f46e5] to-[#06b6d4] dark:from-gray-900 dark:to-gray-800 min-h-screen flex items-center transition-colors duration-500",
+          },
+          React.createElement(
+            "div",
+            { className: "container mx-auto px-4" },
+            React.createElement(
+              "h2",
+              {
+                className:
+                  "text-4xl font-bold text-center mb-12 animate-slide-up text-white transition-colors duration-500",
+              },
+              "Education"
+            ),
+
+            React.createElement(
+              "div",
+              { className: "timeline relative" },
+              [
+                {
+                  title:
+                    "Bachelor of Engineering in Computer Science and Engineering",
+                  institution:
+                    "Vivekananda College of Engineering & Technology, Puttur (VTU)",
+                  period: "Dec 2021 – Apr 2025",
+                  details: "CGPA: 7.6",
+                },
+                {
+                  title: "Pre-University Course (PCMB)",
+                  institution: "GPUC Kadaba, Dakshina Kannada",
+                  period: "Jun 2019 – Jun 2021",
+                  details: "85%",
+                },
+                {
+                  title: "Secondary School Leaving Certificate (SSLC)",
+                  institution: "St. George English Medium School, Aranthodu",
+                  period: "2019",
+                  details: "86%",
+                },
+              ].map((edu, index) =>
+                React.createElement(
+                  "div",
+                  {
+                    key: index,
+                    className:
+                      "timeline-container " +
+                      (index % 2 === 0 ? "left" : "right") +
+                      " animate-fade-in",
+                  },
+                  React.createElement(
+                    "div",
+                    { className: "timeline-content" },
+                    React.createElement(
+                      "h3",
+                      { className: "text-xl font-semibold text-gray-900" },
+                      edu.title
+                    ),
+                    React.createElement(
+                      "p",
+                      { className: "text-gray-700 mt-1" },
+                      edu.institution
+                    ),
+                    React.createElement(
+                      "p",
+                      { className: "text-gray-600 mt-1 italic" },
+                      edu.period
+                    ),
+                    React.createElement(
+                      "p",
+                      { className: "text-gray-800 mt-2 font-medium" },
+                      edu.details
+                    )
+                  )
+                )
+              )
+            )
+          )
+        );
+
+      const Skills = () => {
+        const technical = [
+          { name: "JavaScript", icon: "fab fa-js" },
+          { name: "Python", icon: "fab fa-python" },
+          { name: "ReactJS", icon: "fab fa-react" },
+          { name: "NodeJS", icon: "fab fa-node" },
+          { name: "HTML", icon: "fab fa-html5" },
+          { name: "CSS", icon: "fab fa-css3-alt" },
+          { name: "MongoDB", icon: "fas fa-database" },
+          { name: "MySQL", icon: "fas fa-server" },
+        ];
+
+        const soft = [
+          { name: "Self Learning", icon: "fas fa-lightbulb" },
+          { name: "Teamwork", icon: "fas fa-users" },
+          { name: "Problem Solving", icon: "fas fa-brain" },
+          { name: "Communication", icon: "fas fa-comments" },
+        ];
+
+        return React.createElement(
+          "section",
+          {
+            id: "skills",
+            className:
+              "py-24 min-h-screen flex flex-col items-center " +
+              "bg-gradient-to-br from-orange-600 via-purple-700 to-blue-900 " +
+              "dark:from-gray-900 dark:via-gray-800 dark:to-black " +
+              "transition-colors duration-500",
+          },
+
+          React.createElement(
+            "div",
+            { className: "container mx-auto px-6" },
+
+            React.createElement(
+              "h2",
+              {
+                className:
+                  "text-4xl md:text-5xl font-extrabold text-center mb-12 " +
+                  "text-white animate-slide-up tracking-wide",
+              },
+              "Skills"
+            ),
+
+            React.createElement(
+              "h3",
+              {
+                className:
+                  "text-2xl font-semibold text-center text-white mb-8 animate-fade-in",
+              },
+              "Technical Skills"
+            ),
+
+            React.createElement(
+              "div",
+              {
+                className:
+                  "grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto",
+              },
+
+              technical.map((s, i) =>
+                React.createElement(
+                  "div",
+                  {
+                    key: i,
+                    className:
+                      "flex flex-col items-center justify-center p-6 rounded-3xl " +
+                      "bg-white/20 dark:bg-white/10 border border-white/30 shadow-2xl " +
+                      "text-white hover:bg-white/30 hover:text-gray-900 dark:hover:text-white " +
+                      "transition-all duration-300 hover:scale-105 animate-bounce-in delay-" +
+                      i * 50,
+                  },
+
+                  React.createElement("i", {
+                    className: `${s.icon} text-3xl mb-3`,
+                  }),
+                  React.createElement(
+                    "span",
+                    { className: "font-medium text-lg text-center" },
+                    s.name
+                  )
+                )
+              )
+            ),
+
+            React.createElement(
+              "h3",
+              {
+                className:
+                  "text-2xl font-semibold text-center text-white mt-16 mb-8 animate-fade-in",
+              },
+              "Soft Skills"
+            ),
+
+            React.createElement(
+              "div",
+              {
+                className:
+                  "grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto",
+              },
+
+              soft.map((s, i) =>
+                React.createElement(
+                  "div",
+                  {
+                    key: i,
+                    className:
+                      "flex flex-col items-center justify-center p-6 rounded-3xl " +
+                      "bg-white/20 dark:bg-white/10 border border-white/30 shadow-2xl " +
+                      "text-white hover:bg-white/30 hover:text-gray-900 dark:hover:text-white " +
+                      "transition-all duration-300 hover:scale-105 animate-bounce-in delay-" +
+                      i * 50,
+                  },
+
+                  React.createElement("i", {
+                    className: `${s.icon} text-3xl mb-3`,
+                  }),
+                  React.createElement(
+                    "span",
+                    { className: "font-medium text-lg text-center" },
+                    s.name
+                  )
+                )
+              )
+            ),
+
+            React.createElement("div", {
+              className:
+                "w-24 h-1 mx-auto mt-12 rounded-full bg-white/50 dark:bg-gray-200 animate-scale-in",
+            })
+          )
+        );
+      };
+      const Projects = () => {
+        const projects = [
+          {
+            title: "Kabaddi Scorecard Automation",
+            type: "Main Project",
+            description:
+              "Developed a Kabaddi scorecard automation system using real-time gesture recognition with MediaPipe and WebSocket integration.",
+            tech: "Python, MediaPipe, WebSocket, JS",
+            back: "Real-time scoring UI with backend integration.",
+          },
+          {
+            title: "Stone-Paper-Scissors",
+            type: "Mini Project",
+            description:
+              "A browser-based Rock Paper Scissors game built using HTML, CSS, and JavaScript with live scoring.",
+            tech: "HTML, CSS, JavaScript",
+            back: "Interactive UI and DOM manipulation.",
+          },
+          {
+            title: "REST API Project",
+            type: "Mini Project",
+            description:
+              "CRUD REST API for posts using Node.js and Express with MongoDB.",
+            tech: "Node.js, Express, MongoDB",
+            back: "RESTful routes with validation and persistence.",
+          },
+          {
+            title: "Mongo App",
+            type: "Mini Project",
+            description:
+              "Full-stack CRUD application using Node.js, Express, MongoDB and EJS.",
+            tech: "Node.js, MongoDB, EJS",
+            back: "Message CRUD features and UI.",
+          },
+          {
+            title: "Manual_Coin_Flip_Game",
+            type: "Mini Project",
+            description:
+              'Web-based application built with ReactJS, HTML, JavaScript, and CSS that simulates the flipping of a coin with instant results of "Heads" or "Tails".',
+            tech: "ReactJS, HTML, CSS, JavaScript",
+            back: "Interactive coin flip with smooth animations and instant feedback.",
+          },
+        ];
+
+        return React.createElement(
+          "section",
+          {
+            id: "projects",
+            className:
+              "py-24 min-h-screen flex flex-col items-center " +
+              "bg-gradient-to-br from-orange-600 via-purple-700 to-blue-900 " +
+              "dark:from-gray-900 dark:via-gray-800 dark:to-black " +
+              "transition-colors duration-500",
+          },
+          React.createElement(
+            "div",
+            { className: "container mx-auto px-6" },
+
+            React.createElement(
+              "h2",
+              {
+                className:
+                  "text-4xl md:text-5xl font-extrabold text-center mb-12 " +
+                  "text-white animate-slide-up tracking-wide",
+              },
+              "Academic Projects"
+            ),
+
+            React.createElement(
+              "div",
+              {
+                className:
+                  "grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto",
+              },
+              projects.map((p, i) =>
+                React.createElement(
+                  "div",
+                  {
+                    key: i,
+                    className:
+                      "project-card card shadow-xl rounded-2xl transform transition-all hover:scale-105 animate-bounce-in delay-" +
+                      i * 100,
+                  },
+                  React.createElement(
+                    "div",
+                    { className: "project-card-inner h-full relative" },
+
+                    React.createElement(
+                      "div",
+                      {
+                        className:
+                          "project-front p-6 h-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg transition-colors duration-500",
+                      },
+                      React.createElement(
+                        "h3",
+                        {
+                          className:
+                            "text-xl font-semibold text-orange-600 dark:text-white mb-2 transition-colors duration-500",
+                        },
+                        p.title
+                      ),
+                      React.createElement(
+                        "p",
+                        {
+                          className:
+                            "text-sm text-gray-500 dark:text-gray-300 mb-2 transition-colors duration-500",
+                        },
+                        p.type
+                      ),
+                      React.createElement(
+                        "p",
+                        {
+                          className:
+                            "text-gray-700 dark:text-gray-200 mb-4 transition-colors duration-500",
+                        },
+                        p.description
+                      ),
+                      React.createElement(
+                        "p",
+                        {
+                          className:
+                            "text-sm text-gray-500 dark:text-gray-300 transition-colors duration-500",
+                        },
+                        `Tech Stack: ${p.tech}`
+                      )
+                    ),
+
+                    React.createElement(
+                      "div",
+                      {
+                        className:
+                          "project-back p-6 absolute top-0 left-0 w-full h-full flex items-center justify-center " +
+                          "bg-white/90 dark:bg-gray-700 rounded-2xl shadow-inner transition-colors duration-500 opacity-0 hover:opacity-100",
+                      },
+                      React.createElement(
+                        "p",
+                        {
+                          className:
+                            "text-gray-700 dark:text-gray-200 text-center",
+                        },
+                        p.back
+                      )
+                    )
+                  )
+                )
+              )
+            ),
+
+            React.createElement("div", {
+              className:
+                "w-24 h-1 mx-auto mt-12 rounded-full bg-white/50 dark:bg-gray-200 animate-scale-in",
+            })
+          )
+        );
+      };
+
+      const Certifications = () => {
+        const certs = [
+          "AI-Data Quality Analyst — Rooman Technologies",
+          "Full-Stack Development — Fabsol",
+          "JavaScript Programming — Udemy",
+          "React.js Crash Course — Udemy",
+          "Delta Web Full-Stack — Apna College",
+          "IBM: AI Integration for Predictive Maintenance",
+          "CSS - The Complete Guide — Udemy",
+        ];
+
+        return React.createElement(
+          "section",
+          {
+            id: "certifications",
+            className:
+              "py-20 min-h-screen flex items-center " +
+              "bg-gradient-to-br from-orange-600 via-purple-700 to-blue-900 " +
+              "dark:from-gray-900 dark:via-gray-800 dark:to-black " +
+              "transition-colors duration-500",
+          },
+          React.createElement(
+            "div",
+            { className: "container mx-auto px-4" },
+
+            React.createElement(
+              "h2",
+              {
+                className:
+                  "text-4xl font-bold text-center mb-8 animate-slide-up text-white transition-colors duration-500",
+              },
+              "Certifications & Internship"
+            ),
+
+            React.createElement(
+              "div",
+              {
+                className:
+                  "flex flex-wrap justify-center gap-4 max-w-4xl mx-auto",
+              },
+              certs.map((c, i) =>
+                React.createElement(
+                  "span",
+                  {
+                    key: i,
+                    className:
+                      "cert-badge px-4 py-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-500 text-white shadow-lg animate-bounce-in delay-" +
+                      i * 50,
+                  },
+                  c
+                )
+              )
+            ),
+
+            React.createElement("div", {
+              className: "section-divider animate-scale-in",
+            })
+          )
+        );
+      };
+
+      const Contact = () => {
+        const [formData, setFormData] = useState({
+          from_name: "",
+          from_email: "",
+          subject: "",
+          message: "",
+        });
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          alert(`Message Sent!\nName: ${formData.from_name}`);
+          setFormData({
+            from_name: "",
+            from_email: "",
+            subject: "",
+            message: "",
+          });
+        };
+
+        const handleChange = (e) => {
+          setFormData({ ...formData, [e.target.id]: e.target.value });
+        };
+
+        return React.createElement(
+          "section",
+          {
+            id: "contact",
+            className:
+              "py-20 bg-gradient-to-br from-primary to-secondary dark:from-gray-900 dark:to-gray-800 text-white min-h-screen flex items-center",
+          },
+          React.createElement(
+            "div",
+            { className: "container mx-auto px-6" },
+            React.createElement(
+              "h2",
+              {
+                className:
+                  "text-5xl font-extrabold text-center mb-10 animate-slide-up text-white dark:text-white tracking-wide",
+              },
+              "Get in Touch"
+            ),
+
+            React.createElement(
+              "div",
+              {
+                className:
+                  "max-w-xl mx-auto rounded-2xl p-10 backdrop-blur-xl bg-white/10 dark:bg-black/20 shadow-2xl border border-white/20 dark:border-gray-700 space-y-6 animate-bounce-in",
+              },
+
+              ["from_name", "from_email", "subject", "message"].map(
+                (field, i) =>
+                  React.createElement(
+                    "div",
+                    {
+                      key: field,
+                      className: "animate-scale-in delay-" + i * 100,
+                    },
+                    React.createElement(
+                      "label",
+                      {
+                        htmlFor: field,
+                        className:
+                          "block font-semibold mb-2 text-white/80 dark:text-gray-200 tracking-wide",
+                      },
+                      field
+                        .replace("_", " ")
+                        .replace(/\b\w/g, (l) => l.toUpperCase())
+                    ),
+                    field === "message"
+                      ? React.createElement("textarea", {
+                          id: field,
+                          value: formData[field],
+                          onChange: handleChange,
+                          rows: 5,
+                          placeholder: `Enter ${field}`,
+                          required: true,
+                          className:
+                            "w-full p-4 rounded-xl bg-white/90 dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 focus:ring-4 focus:ring-primary/40 outline-none transition",
+                        })
+                      : React.createElement("input", {
+                          type: field === "from_email" ? "email" : "text",
+                          id: field,
+                          value: formData[field],
+                          onChange: handleChange,
+                          placeholder: `Enter ${field}`,
+                          required: true,
+                          className:
+                            "w-full p-4 rounded-xl bg-white/90 dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 focus:ring-4 focus:ring-primary/40 outline-none transition",
+                        })
+                  )
+              ),
+
+              React.createElement(
+                "button",
+                {
+                  onClick: handleSubmit,
+                  className:
+                    "w-full py-3 rounded-xl font-semibold bg-accent hover:bg-emerald-600 transition transform hover:scale-[1.03] shadow-lg text-white",
+                },
+                "Send Message"
+              )
+            ),
+
+            React.createElement(
+              "div",
+              { className: "mt-10 text-center animate-fade-in delay-200" },
+              React.createElement(
+                "p",
+                { className: "text-lg text-white dark:text-gray-300" },
+                "You can also reach me directly:"
+              ),
+
+              React.createElement(
+                "a",
+                {
+                  href: `mailto:${EMAIL}`,
+                  className:
+                    "text-accent dark:text-emerald-400 hover:underline font-semibold block mt-2",
+                },
+                EMAIL
+              ),
+
+              React.createElement(
+                "a",
+                {
+                  href: `tel:${PHONE}`,
+                  className:
+                    "text-accent dark:text-emerald-400 hover:underline font-semibold block",
+                },
+                PHONE
+              ),
+
+              React.createElement(
+                "div",
+                { className: "mt-4 space-x-3" },
+                React.createElement(
+                  "a",
+                  {
+                    href: LINKEDIN,
+                    className: "underline text-white/80 hover:text-white",
+                    target: "_blank",
+                    rel: "noreferrer",
+                  },
+                  "LinkedIn"
+                ),
+                React.createElement("span", null, "•"),
+                React.createElement(
+                  "a",
+                  {
+                    href: GITHUB,
+                    className: "underline text-white/80 hover:text-white",
+                    target: "_blank",
+                    rel: "noreferrer",
+                  },
+                  "GitHub"
+                )
+              )
+            )
+          )
+        );
+      };
+
+      const App = () =>
+        React.createElement(
+          "div",
+          null,
+          React.createElement(Navbar),
+          React.createElement(Hero),
+          React.createElement(About),
+          React.createElement(Education),
+          React.createElement(Skills),
+          React.createElement(Projects),
+          React.createElement(Certifications),
+          React.createElement(Contact)
+        );
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        React.createElement(App)
+      );
+    </script>
+  </body>
+</html>
