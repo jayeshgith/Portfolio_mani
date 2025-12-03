@@ -564,34 +564,37 @@
             )
           )
         );
-
       const Education = () =>
         React.createElement(
           "section",
           {
             id: "education",
             className:
-              "py-20 bg-gradient-to-r from-[#4f46e5] to-[#06b6d4] dark:from-gray-900 dark:to-gray-800 min-h-screen flex items-center transition-colors duration-500",
+              "py-20 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] dark:from-gray-900 dark:to-black min-h-screen transition-colors duration-500",
           },
           React.createElement(
             "div",
-            { className: "container mx-auto px-4" },
+            { className: "max-w-5xl mx-auto px-6" },
+
+            // Title
             React.createElement(
               "h2",
               {
                 className:
-                  "text-4xl font-bold text-center mb-12 animate-slide-up text-white transition-colors duration-500",
+                  "text-4xl md:text-5xl font-extrabold text-center mb-16 text-white tracking-wide drop-shadow-lg",
               },
               "Education"
             ),
 
+            // Cards container
             React.createElement(
               "div",
-              { className: "timeline relative" },
+              { className: "grid md:grid-cols-2 gap-10" },
+
               [
                 {
                   title:
-                    "Bachelor of Engineering in Computer Science and Engineering",
+                    "Bachelor of Engineering in Computer Science & Engineering",
                   institution:
                     "Vivekananda College of Engineering & Technology, Puttur (VTU)",
                   period: "Dec 2021 – Apr 2025",
@@ -600,14 +603,15 @@
                 {
                   title: "Pre-University Course (PCMB)",
                   institution: "GPUC Kadaba, Dakshina Kannada",
-                  period: "Jun 2019 – Jun 2021",
-                  details: "85%",
+                  period: "Feb 2020 – Aug 2021",
+                  details: "Percentage: 85.83%",
                 },
                 {
                   title: "Secondary School Leaving Certificate (SSLC)",
-                  institution: "St. George English Medium School, Aranthodu",
+                  institution:
+                    "St. George High School Kunthoor Padau, Kadaba TQ, Dakshina Kannada",
                   period: "2019",
-                  details: "86%",
+                  details: "Percentage: 87.84%",
                 },
               ].map((edu, index) =>
                 React.createElement(
@@ -615,33 +619,69 @@
                   {
                     key: index,
                     className:
-                      "timeline-container " +
-                      (index % 2 === 0 ? "left" : "right") +
-                      " animate-fade-in",
+                      "relative bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl shadow-xl text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:bg-white/20",
                   },
+
+                  // Icon
                   React.createElement(
                     "div",
-                    { className: "timeline-content" },
+                    {
+                      className:
+                        "absolute -top-5 -left-5 bg-gradient-to-r from-cyan-400 to-blue-500 p-4 rounded-2xl shadow-lg",
+                    },
                     React.createElement(
-                      "h3",
-                      { className: "text-xl font-semibold text-gray-900" },
-                      edu.title
-                    ),
-                    React.createElement(
-                      "p",
-                      { className: "text-gray-700 mt-1" },
-                      edu.institution
-                    ),
-                    React.createElement(
-                      "p",
-                      { className: "text-gray-600 mt-1 italic" },
-                      edu.period
-                    ),
-                    React.createElement(
-                      "p",
-                      { className: "text-gray-800 mt-2 font-medium" },
-                      edu.details
+                      "svg",
+                      {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        fill: "none",
+                        viewBox: "0 0 24 24",
+                        strokeWidth: 1.5,
+                        stroke: "white",
+                        className: "w-8 h-8",
+                      },
+                      React.createElement("path", {
+                        strokeLinecap: "round",
+                        strokeLinejoin: "round",
+                        d: "M12 14l9-5-9-5-9 5 9 5zm0 0v6",
+                      })
                     )
+                  ),
+
+                  // Title
+                  React.createElement(
+                    "h3",
+                    {
+                      className: "text-2xl font-bold mb-3 mt-4 leading-snug",
+                    },
+                    edu.title
+                  ),
+
+                  // Institution
+                  React.createElement(
+                    "p",
+                    {
+                      className: "text-gray-200 text-sm mb-2 tracking-wide",
+                    },
+                    edu.institution
+                  ),
+
+                  // Period
+                  React.createElement(
+                    "p",
+                    {
+                      className: "text-gray-300 text-xs italic mb-4",
+                    },
+                    edu.period
+                  ),
+
+                  // Details
+                  React.createElement(
+                    "span",
+                    {
+                      className:
+                        "inline-block bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold px-4 py-1 rounded-full shadow-md",
+                    },
+                    edu.details
                   )
                 )
               )
