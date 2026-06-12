@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Manish Kunthoor - Portfolio
+
+A modern, responsive portfolio website showcasing my projects, skills, education, and professional experience as a Full-Stack Developer.
+
+## About
+
+This is my personal portfolio built to demonstrate my expertise in web development. I created this site to showcase the projects I've built, the technologies I work with, and my journey as an entry-level Full-Stack Developer with hands-on experience in Next.js, React, Node.js, and MongoDB.
+
+## Featured Projects
+
+- **Fabinex** - Personal & family finance management app with secure authentication, expense tracking, dashboards, and Stripe integration
+- **Kabaddi Scorecard Automation** - Real-time gesture recognition system using MediaPipe and WebSocket for live scoring
+- **REST API Project** - Full-stack CRUD API for post management with Node.js and MongoDB
+- **Portfolio** - This responsive portfolio website itself
+
+## Technologies Used
+
+### Frontend
+- **Next.js** - React framework with App Router for modern, fast web applications
+- **React.js** - Component-based UI library for interactive interfaces
+- **TypeScript** - Type-safe JavaScript for better code quality
+- **Tailwind CSS** - Utility-first CSS framework for responsive design
+
+### Backend
+- **Node.js** - JavaScript runtime for server-side development
+- **Express.js** - Minimal web framework for building APIs
+- **Next.js API Routes** - Serverless API endpoints built into Next.js
+
+### Database
+- **MongoDB** - NoSQL database for flexible data storage
+- **Mongoose** - ODM for MongoDB with schema validation
+
+### Tools & Libraries
+- **Git & GitHub** - Version control and collaboration
+- **Stripe** - Payment processing integration
+- **Zod** - Schema validation for API requests
+- **bcryptjs** - Secure password hashing
+- **NextAuth.js** - Authentication solution for Next.js apps
+
+## Design & Features
+
+The portfolio is built with a focus on clean design and user experience:
+- **Dark Theme** - Modern dark interface with emerald green accents
+- **Responsive Design** - Mobile-first approach that works perfectly on all screen sizes
+- **Smooth Animations** - Glass-morphism effects and subtle hover interactions
+- **Clear Navigation** - Intuitive sections: Home, About, Skills, Projects, Education, Certifications, Contact
+- **Professional Typography** - Inter font family for excellent readability
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/jayeshgith/Portfolio_mani.git
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see your portfolio running locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Live Demo
 
-To learn more about Next.js, take a look at the following resources:
+View the live portfolio here: [https://my-site-newpage.vercel.app/](https://my-site-newpage.vercel.app/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact & Connect
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Email:** manishkunthoor@gmail.com
+- **Phone:** +91 7019974493
+- **LinkedIn:** [manish-kunthoor-99ba00279](https://www.linkedin.com/in/manish-kunthoor-99ba00279)
+- **GitHub:** [jayeshgith](https://github.com/jayeshgith)
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is open source and available under the MIT License.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Built with ❤️ by Manish Kunthoor
