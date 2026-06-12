@@ -19,6 +19,7 @@ const projects: Project[] = [
     tech: "Next.js, MongoDB, Stripe, Zod",
     back: "Secure authentication, profile management, dashboards with charts, file uploads, notifications, and Stripe test checkout integration.",
     emoji: "💰",
+    link: "https://fab-inex.vercel.app/",
   },
   {
     title: "Kabaddi Scorecard Automation",
