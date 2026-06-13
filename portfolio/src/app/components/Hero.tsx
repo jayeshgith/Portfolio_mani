@@ -1,148 +1,214 @@
 "use client";
 
 import Image from "next/image";
+import { useCallback } from "react";
 
 const socialLinks = [
   {
     href: "https://www.linkedin.com/in/manish-kunthoor-99ba00279",
     icon: "fab fa-linkedin-in",
     label: "LinkedIn",
-    external: true,
+    color: "hover:text-blue-400 hover:border-blue-500/30 hover:bg-blue-500/10",
   },
   {
     href: "https://github.com/jayeshgith",
     icon: "fab fa-github",
     label: "GitHub",
-    external: true,
+    color: "hover:text-white hover:border-white/20 hover:bg-white/10",
   },
   {
     href: "mailto:manishkunthoor@gmail.com",
     icon: "fas fa-envelope",
     label: "Email",
-    external: false,
+    color: "hover:text-emerald-400 hover:border-emerald-500/30 hover:bg-emerald-500/10",
   },
   {
     href: "tel:+917019974493",
     icon: "fas fa-phone",
     label: "Phone",
-    external: false,
+    color: "hover:text-violet-400 hover:border-violet-500/30 hover:bg-violet-500/10",
   },
 ];
 
-const stats = [
-  { label: "Projects", value: "4+" },
-  { label: "Experience", value: "6+ mo" },
-  { label: "Tech Stack", value: "Next.js" },
-];
-
 export default function Hero() {
+  const scrollTo = useCallback((id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-slate-950/90 px-6 py-28 text-white"
+      className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.22),_transparent_25%),radial-gradient(circle_at_bottom_right,_rgba(79,70,229,0.2),_transparent_30%)]" />
-      <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.45fr_1fr] lg:items-center">
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 rounded-full bg-slate-800/70 px-4 py-2 text-xs uppercase tracking-[0.4em] text-emerald-300 shadow-xl shadow-emerald-500/20">
-            Personal Portfolio
-          </div>
+      {/* Background visual components */}
+      <div className="grid-bg" />
+      <div className="bg-blur-container">
+        <div className="bg-blur-blob blob-1" />
+        <div className="bg-blur-blob blob-2" />
+        <div className="bg-blur-blob blob-3" />
+      </div>
 
-          <div className="space-y-6">
-            <p className="text-sm uppercase tracking-[0.35em] text-slate-400">
-              Full-Stack Developer
-            </p>
-            <h1 className="max-w-3xl text-5xl font-black leading-tight tracking-tight sm:text-6xl">
-              Full-Stack developer building scalable, modern web applications.
-            </h1>
-            <p className="max-w-2xl text-lg leading-8 text-slate-300">
-              I specialize in Next.js, React, Node.js, and MongoDB. Focused on
-              clean code, responsive design, and real-world problem solving.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:max-w-md sm:grid-cols-2">
-            <a
-              href="#contact"
-              className="btn-primary inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold shadow-lg shadow-emerald-500/20 transition hover:-translate-y-0.5"
-            >
-              Contact Me
-            </a>
-            <a
-              href="#projects"
-              className="btn-secondary inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold transition hover:-translate-y-0.5"
-            >
-              View Projects
-            </a>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-3">
-            {stats.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-3xl border border-white/10 bg-slate-900/70 p-5 text-center backdrop-blur-md"
-              >
-                <p className="text-3xl font-bold text-white">{item.value}</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.32em] text-slate-400">
-                  {item.label}
-                </p>
+      <div className="relative mx-auto max-w-7xl px-6 w-full z-10">
+        <div className="grid gap-16 lg:grid-cols-[1.25fr_1fr] lg:items-center">
+          
+          {/* Left Column: Heading and description */}
+          <div className="space-y-8 text-left">
+            <div className="animate-fade-in">
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-4.5 py-1.5 text-[0.7rem] font-extrabold uppercase tracking-[0.25em] text-emerald-300 shadow-sm shadow-emerald-500/5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-glow" />
+                Available for Opportunities
               </div>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            {socialLinks.map(({ href, icon, label, external }) => (
-              <a
-                key={label}
-                href={href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noreferrer noopener" : undefined}
-                aria-label={label}
-                className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xl text-white transition hover:border-emerald-300 hover:text-emerald-300"
-              >
-                <i className={icon} />
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative mx-auto w-full max-w-xl">
-          <div className="hero-ring absolute inset-0 -z-10 rounded-[2.5rem] bg-gradient-to-br from-emerald-400/15 via-sky-500/10 to-violet-500/10 blur-3xl" />
-          <div className="glass-card relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/85 p-6 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.85)]">
-            <div className="relative mx-auto mb-8 h-[300px] w-[300px] overflow-hidden rounded-full border border-white/10 bg-slate-950/90 shadow-2xl shadow-slate-950/40 sm:h-[340px] sm:w-[340px]">
-              <Image
-                src="/mypic.jpg"
-                alt="Manish Kunthoor"
-                fill
-                className="object-cover"
-                priority
-              />
             </div>
-            <div className="space-y-4 rounded-3xl bg-slate-800/70 p-6 text-slate-200">
-              <p className="text-sm uppercase tracking-[0.32em] text-emerald-300">
-                About Me
+
+            <div className="space-y-6 animate-slide-up">
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-slate-500">
+                Full-Stack Engineer
               </p>
-              <p className="leading-7 text-slate-300">
-                Entry-level Full-Stack Developer with hands-on experience
-                building scalable applications. Strong foundation in Next.js,
-                React, Node.js, and MongoDB.
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-[1.08] tracking-tight text-white">
+                Building{" "}
+                <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-400 bg-clip-text text-transparent">
+                  modern web
+                </span>
+                <br />
+                experiences
+              </h1>
+              <p className="max-w-2xl text-slate-400 leading-relaxed text-[1.05rem]">
+                I specialize in Next.js, React, Node.js, and MongoDB. Focused on
+                clean architecture, responsive layouts, and solving real-world challenges.
               </p>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-3xl bg-slate-900/80 p-4">
-                  <p className="text-sm text-slate-400">Primary stack</p>
-                  <p className="mt-2 font-semibold text-white">
-                    Next.js + MongoDB
-                  </p>
-                </div>
-                <div className="rounded-3xl bg-slate-900/80 p-4">
-                  <p className="text-sm text-slate-400">Focus</p>
-                  <p className="mt-2 font-semibold text-white">
-                    Full-Stack Web Apps
-                  </p>
-                </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 animate-fade-in delay-200">
+              <button
+                onClick={() => scrollTo("contact")}
+                className="btn-primary inline-flex items-center gap-2 rounded-full px-8 py-4.5 text-sm font-bold cursor-pointer"
+              >
+                Get in Touch
+                <i className="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+              <button
+                onClick={() => scrollTo("projects")}
+                className="btn-secondary inline-flex items-center gap-2 rounded-full px-8 py-4.5 text-sm font-bold cursor-pointer"
+              >
+                <i className="fas fa-code text-xs" />
+                View Projects
+              </button>
+            </div>
+
+            {/* Social Dock */}
+            <div className="flex items-center gap-5 pt-4 animate-fade-in delay-400">
+              <span className="text-[0.7rem] font-bold uppercase tracking-[0.25em] text-slate-500">
+                Connect
+              </span>
+              <div className="w-12 h-px bg-slate-800" />
+              <div className="flex items-center gap-3">
+                {socialLinks.map(({ href, icon, label, color }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={label}
+                    className={`flex h-10 w-10 items-center justify-center rounded-2xl border border-white/5 bg-white/[0.02] text-sm text-slate-400 transition-all duration-300 ${color} hover:-translate-y-1 shadow-sm`}
+                  >
+                    <i className={icon} />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
+
+          {/* Right Column: Premium Code Window + Profile Visual */}
+          <div className="relative animate-scale-in delay-100 flex flex-col items-center">
+            
+            {/* Visual glow behind */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/15 via-blue-500/8 to-violet-500/15 rounded-[2.5rem] blur-3xl -z-10" />
+
+            <div className="w-full max-w-[440px] space-y-6">
+              
+              {/* Code Editor Window */}
+              <div className="glass-card rounded-[1.5rem] overflow-hidden shadow-2xl border border-white/5">
+                <div className="bg-dark-3/60 px-4 py-3 border-b border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded-full bg-red-500/70" />
+                    <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                    <span className="w-3 h-3 rounded-full bg-green-500/70" />
+                  </div>
+                  <span className="text-[0.68rem] font-mono text-slate-500 select-none">
+                    developer.json
+                  </span>
+                  <div className="w-12" />
+                </div>
+                <div className="p-5 font-mono text-[0.8rem] leading-relaxed text-slate-300 overflow-x-auto">
+                  <div>
+                    <span className="text-violet-400">const</span>{" "}
+                    <span className="text-blue-400">developer</span> = &#123;
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-emerald-400">&quot;name&quot;</span>:{" "}
+                    <span className="text-amber-300">&quot;Manish Kunthoor&quot;</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-emerald-400">&quot;role&quot;</span>:{" "}
+                    <span className="text-amber-300">&quot;Full-Stack Engineer&quot;</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-emerald-400">&quot;focus&quot;</span>:{" "}
+                    <span className="text-amber-300">&quot;Scalable Web Apps&quot;</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-emerald-400">&quot;stack&quot;</span>: [
+                  </div>
+                  <div className="pl-8 text-amber-300">
+                    &quot;Next.js&quot;, &quot;TypeScript&quot;, &quot;Node.js&quot;, &quot;MongoDB&quot;
+                  </div>
+                  <div className="pl-4">],</div>
+                  <div className="pl-4">
+                    <span className="text-emerald-400">&quot;motto&quot;</span>:{" "}
+                    <span className="text-amber-300">&quot;Clean Code, Real Solutions&quot;</span>
+                  </div>
+                  <div>&#125;;</div>
+                </div>
+              </div>
+
+              {/* Profile card & Stats container */}
+              <div className="glass-card rounded-[1.5rem] p-5 flex items-center gap-4 relative overflow-hidden border border-white/5">
+                <div className="relative h-16 w-16 overflow-hidden rounded-2xl border border-white/10 shrink-0">
+                  <Image
+                    src="/mypic.jpg"
+                    alt="Manish Kunthoor"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-bold text-white truncate">Manish Kunthoor</h3>
+                  <p className="text-[0.72rem] text-emerald-400 font-semibold mt-0.5">BE - Computer Science</p>
+                  <p className="text-[0.68rem] text-slate-500 truncate mt-1">Bangalore, Karnataka, IN</p>
+                </div>
+              </div>
+
+              {/* Numeric Stats */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="glass-card rounded-[1.25rem] p-4.5 text-center border border-white/5">
+                  <p className="text-2xl font-black text-white bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">4+</p>
+                  <p className="text-[0.68rem] font-bold uppercase tracking-widest text-slate-400 mt-1">
+                    Projects
+                  </p>
+                </div>
+                <div className="glass-card rounded-[1.25rem] p-4.5 text-center border border-white/5">
+                  <p className="text-2xl font-black text-white bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">6+ mo</p>
+                  <p className="text-[0.68rem] font-bold uppercase tracking-widest text-slate-400 mt-1">
+                    Experience
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

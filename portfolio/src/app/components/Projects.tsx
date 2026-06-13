@@ -4,112 +4,178 @@ interface Project {
   title: string;
   type: string;
   description: string;
-  tech: string;
-  back: string;
+  tech: string[];
+  features: string[];
   emoji: string;
   link?: string;
+  github?: string;
 }
 
 const projects: Project[] = [
   {
     title: "Fabinex",
-    type: "Full-Stack",
+    type: "Full-Stack App",
     description:
-      "Personal & family finance management app with income-expense tracking and cashflow insights.",
-    tech: "Next.js, MongoDB, Stripe, Zod",
-    back: "Secure authentication, profile management, dashboards with charts, file uploads, notifications, and Stripe test checkout integration.",
+      "A comprehensive finance dashboard that enables users to track incomes, expenses, and cashflow details.",
+    tech: ["Next.js", "MongoDB", "Stripe", "Zod", "NextAuth"],
+    features: [
+      "Secure user signup, login, and profile tracking",
+      "Interactive analytics charts for monthly summaries",
+      "Dynamic receipt file uploads and automated alerts",
+      "Stripe integration with checkout sandbox simulation"
+    ],
     emoji: "💰",
     link: "https://fab-inex.vercel.app/",
+    github: "https://github.com/jayeshgith",
   },
   {
     title: "Kabaddi Scorecard Automation",
-    type: "AI/Vision",
+    type: "AI & Computer Vision",
     description:
-      "Real-time scorecard automation using gesture recognition with WebSocket integration.",
-    tech: "Python, MediaPipe, WebSocket, JavaScript",
-    back: "Live gesture recognition system with real-time dashboard and WebSocket communication for instant updates.",
+      "A scoring pipeline using camera inputs to detect custom hand gestures and update tournament tables in real time.",
+    tech: ["Python", "MediaPipe", "WebSocket", "JavaScript"],
+    features: [
+      "Real-time hand gesture extraction using MediaPipe models",
+      "WebSocket stream relaying coordinates to clients instantly",
+      "Dynamic browser dashboard showing scoreboard states"
+    ],
     emoji: "🏆",
     link: "https://github.com/jayeshgith",
+    github: "https://github.com/jayeshgith",
   },
   {
-    title: "REST API Project",
+    title: "REST API Architecture",
     type: "Backend API",
     description:
-      "Full-stack post management API demonstrating CRUD operations with RESTful architecture.",
-    tech: "Node.js, Express, MongoDB",
-    back: "Designed clean endpoints, input validation, error handling, and reliable data persistence for real-world use.",
+      "Robust post management backend demonstrating structured REST design principles and data security protocols.",
+    tech: ["Node.js", "Express", "MongoDB", "Mongoose"],
+    features: [
+      "Clean modular router endpoints with standard responses",
+      "Strict data validation schemas on requests to block SQL/JSON injection",
+      "Global Express error handling middlewares"
+    ],
     emoji: "🔌",
     link: "https://github.com/jayeshgith/REST_API_Project",
+    github: "https://github.com/jayeshgith/REST_API_Project",
   },
   {
     title: "My Portfolio",
-    type: "Full-Stack",
+    type: "Web Design",
     description:
-      "Personal portfolio website showcasing projects, skills, education, and experience.",
-    tech: "Next.js, TypeScript, Tailwind CSS",
-    back: "Responsive design with smooth animations, optimized performance, and clear information architecture.",
+      "Fully responsive developer portfolio showcasing projects, credentials, and interactive interfaces.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "CSS3"],
+    features: [
+      "Animated background mesh blobs and layout grid alignment",
+      "Floating island glass navbar responding dynamically to scrolls",
+      "Clean metadata SEO setup with responsive layout compatibility"
+    ],
     emoji: "🌐",
     link: "https://my-site-newpage.vercel.app/",
+    github: "https://github.com/jayeshgith/Portfolio_mani",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 text-white">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-28 relative">
+      {/* Decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/[0.01] to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        
+        {/* Section Title */}
         <div className="mx-auto max-w-4xl space-y-4 text-center">
           <p className="section-overline">Featured Projects</p>
           <h2 className="section-title">
             Real-world applications built with modern tools.
           </h2>
           <p className="section-description">
-            Full-stack projects demonstrating end-to-end development from
-            frontend UI to backend APIs and databases.
+            Full-stack projects demonstrating end-to-end development, from client interface designs to backend business layers and persistent storage schemas.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-8 xl:grid-cols-2">
+        {/* Project Grid */}
+        <div className="mt-16 grid gap-8 lg:grid-cols-2">
           {projects.map((project, index) => (
             <article
               key={index}
-              className="glass-card rounded-[2rem] border border-white/10 p-6 shadow-xl shadow-slate-950/30 transition duration-300 hover:-translate-y-1"
+              className="glass-card rounded-[2rem] p-6 lg:p-8 flex flex-col justify-between border border-white/5 relative group"
             >
-              <div className="flex items-center justify-between gap-4">
-                <div className="text-3xl">{project.emoji}</div>
-                <span className="rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.28em] text-slate-300">
-                  {project.type}
-                </span>
+              <div>
+                {/* Upper block */}
+                <div className="flex items-center justify-between gap-4 mb-6">
+                  <div className="flex items-center gap-3.5">
+                    <div className="h-11 w-11 rounded-2xl bg-gradient-to-tr from-emerald-500/10 to-teal-500/20 text-xl flex items-center justify-center shrink-0 border border-emerald-500/10">
+                      {project.emoji}
+                    </div>
+                    <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-emerald-400 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <span className="rounded-full bg-white/5 border border-white/5 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-slate-400">
+                    {project.type}
+                  </span>
+                </div>
+
+                <p className="text-slate-400 leading-relaxed text-sm mb-6">
+                  {project.description}
+                </p>
+
+                {/* Tech Badges */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full bg-emerald-500/5 px-3 py-1 text-[0.7rem] font-bold text-emerald-300 border border-emerald-500/10 shadow-sm"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Features Checklist */}
+                <div className="rounded-2xl bg-white/[0.01] p-5.5 border border-white/5 mb-8">
+                  <p className="text-[0.65rem] font-bold uppercase tracking-widest text-emerald-400 mb-3">
+                    Architectural Features
+                  </p>
+                  <ul className="space-y-2.5">
+                    {project.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2.5 text-xs text-slate-400 leading-normal">
+                        <span className="flex h-4.5 w-4.5 items-center justify-center rounded-full bg-emerald-500/10 text-[0.5rem] text-emerald-400 shrink-0 border border-emerald-500/10 mt-0.5">
+                          <i className="fas fa-check" />
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <h3 className="mt-6 text-2xl font-semibold text-white">
-                {project.title}
-              </h3>
-              <p className="mt-4 text-slate-300 leading-7">
-                {project.description}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-sm text-emerald-300">
-                  {project.tech}
-                </span>
+              {/* Action Buttons */}
+              <div className="flex items-center gap-4 border-t border-white/5 pt-5 mt-auto">
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-300 font-bold text-xs uppercase tracking-wider group/link cursor-pointer"
+                  >
+                    <span>Live Preview</span>
+                    <i className="fas fa-arrow-right text-[0.65rem] transition-transform duration-300 group-hover/link:translate-x-1" />
+                  </a>
+                )}
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors duration-300 font-bold text-xs uppercase tracking-wider ml-auto cursor-pointer"
+                  >
+                    <i className="fab fa-github text-sm" />
+                    <span>Source</span>
+                  </a>
+                )}
               </div>
-
-              <div className="mt-6 rounded-3xl bg-slate-900/80 p-4 text-slate-300 transition group-hover:bg-slate-800/90">
-                <p className="text-sm text-white">Details</p>
-                <p className="mt-2 text-sm leading-6">{project.back}</p>
-              </div>
-
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 text-emerald-300 hover:text-emerald-200 transition"
-                >
-                  <span>View Project</span>
-                  <i className="fas fa-arrow-right text-xs" />
-                </a>
-              )}
             </article>
           ))}
         </div>
