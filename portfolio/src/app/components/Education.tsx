@@ -11,21 +11,21 @@ interface EducationItem {
 const educationData: EducationItem[] = [
   {
     title: "Bachelor of Engineering in Computer Science & Engineering",
-    institution: "Vivekananda College of Engineering & Technology, Puttur (VTU)",
+    institution: "Vivekananda College of Engineering & Technology, Puttur (VTU), Karnataka",
     period: "2021 - 2025",
     details: "CGPA: 7.6",
     icon: "fas fa-graduation-cap",
   },
   {
     title: "Pre-University Education (PU - PCMB)",
-    institution: "Government Pre-University College Kadaba, Dakshina Kannada",
+    institution: "Government Pre-University College Kadaba, Dakshina Kannada, Karnataka",
     period: "2020 - 2021",
     details: "Score: 85%",
     icon: "fas fa-school",
   },
   {
     title: "Secondary School Leaving Certificate (SSLC)",
-    institution: "St. George High School Kunthoor-Padavu, Kadaba",
+    institution: "St. George High School Kunthoor-Padavu, Kadaba, Karnataka",
     period: "2019",
     details: "Score: 87.84%",
     icon: "fas fa-book",
