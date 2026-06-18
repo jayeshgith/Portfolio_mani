@@ -16,12 +16,14 @@ export default function Navbar() {
     const initialTheme = savedTheme || "dark";
     setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
+    document.body.setAttribute("data-theme", initialTheme);
   }, []);
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
     document.documentElement.setAttribute("data-theme", nextTheme);
+    document.body.setAttribute("data-theme", nextTheme);
     localStorage.setItem("theme", nextTheme);
   };
   
