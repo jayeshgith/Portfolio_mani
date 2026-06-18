@@ -9,6 +9,21 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("Home");
   const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({});
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") as "dark" | "light" | null;
+    const initialTheme = savedTheme || "dark";
+    setTheme(initialTheme);
+    document.documentElement.setAttribute("data-theme", initialTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    localStorage.setItem("theme", nextTheme);
+  };
   
   const navRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
 
@@ -139,18 +154,33 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Mobile Menu Activation Toggle */}
-        <button
-          className="md:hidden text-white flex items-center justify-center h-10 w-10 rounded-full bg-white/5 border border-white/5 hover:bg-emerald-500/10 hover:border-emerald-500/20 focus:outline-none transition-all duration-300 cursor-pointer"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <div className="w-5 h-4 flex flex-col justify-between items-center relative">
-            <span className={`w-5 h-0.5 bg-white rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
-            <span className={`w-5 h-0.5 bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`w-5 h-0.5 bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
-          </div>
-        </button>
+        <div className="flex items-center gap-3">
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center h-10 w-10 rounded-full bg-white/5 border border-white/5 hover:bg-emerald-500/10 hover:border-emerald-500/20 focus:outline-none transition-all duration-300 cursor-pointer text-slate-300 hover:text-white"
+            aria-label="Toggle Theme"
+          >
+            {theme === "dark" ? (
+              <i className="fas fa-sun text-sm" />
+            ) : (
+              <i className="fas fa-moon text-sm" />
+            )}
+          </button>
+
+          {/* Mobile Menu Activation Toggle */}
+          <button
+            className="md:hidden text-white flex items-center justify-center h-10 w-10 rounded-full bg-white/5 border border-white/5 hover:bg-emerald-500/10 hover:border-emerald-500/20 focus:outline-none transition-all duration-300 cursor-pointer"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <div className="w-5 h-4 flex flex-col justify-between items-center relative">
+              <span className={`w-5 h-0.5 bg-white rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
+              <span className={`w-5 h-0.5 bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`w-5 h-0.5 bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile drop down menu panel */}

@@ -48,18 +48,45 @@ export function AntigravityBackground() {
     }
 
     const mouse = { x: -1000, y: -1000, active: false };
+    const mouseTrail: { x: number; y: number; age: number }[] = [];
 
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
       mouse.active = true;
+      mouseTrail.push({ x: e.clientX, y: e.clientY, age: 0 });
+      if (mouseTrail.length > 15) {
+        mouseTrail.shift();
+      }
     };
 
     const handleMouseLeave = () => {
       mouse.active = false;
+      mouseTrail.length = 0;
     };
 
     const handleClick = (e: MouseEvent) => {
+      // Spawn burst of 10 new glowing particles on click
+      for (let i = 0; i < 10; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 2.5 + 1;
+        const radius = Math.random() * 2 + 1;
+        particles.push({
+          x: e.clientX,
+          y: e.clientY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          radius: radius,
+          color: colors[Math.floor(Math.random() * colors.length)],
+        });
+      }
+      
+      // Limit particles count to maintain 60 FPS performance
+      if (particles.length > 100) {
+        particles.splice(0, particles.length - 100);
+      }
+
+      // Existing push force for surrounding particles
       particles.forEach((p) => {
         const dx = p.x - e.clientX;
         const dy = p.y - e.clientY;
@@ -78,6 +105,23 @@ export function AntigravityBackground() {
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+
+      // Draw mouse trail particles (dots)
+      if (mouse.active) {
+        mouseTrail.forEach((t) => {
+          t.age += 0.5;
+          const opacity = (1 - t.age / 15) * (isLight ? 0.35 : 0.25);
+          if (opacity > 0) {
+            ctx.beginPath();
+            ctx.arc(t.x, t.y, 3.5 * (1 - t.age / 15), 0, Math.PI * 2);
+            ctx.fillStyle = isLight 
+              ? `rgba(5, 150, 105, ${opacity})`
+              : `rgba(16, 185, 129, ${opacity})`;
+            ctx.fill();
+          }
+        });
+      }
 
       particles.forEach((p) => {
         p.vx *= 0.98;
@@ -128,6 +172,7 @@ export function AntigravityBackground() {
         ctx.fillStyle = p.color;
         ctx.fill();
 
+        // Connect particles to each other
         particles.forEach((other) => {
           if (p === other) return;
           const dx = p.x - other.x;
@@ -137,11 +182,30 @@ export function AntigravityBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(5, 150, 105, ${0.08 * (1 - dist / 80)})`;
+            ctx.strokeStyle = isLight
+              ? `rgba(5, 150, 105, ${0.15 * (1 - dist / 80)})`
+              : `rgba(5, 150, 105, ${0.08 * (1 - dist / 80)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         });
+
+        // Connect particles directly to the mouse cursor
+        if (mouse.active) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = isLight
+              ? `rgba(5, 150, 105, ${0.25 * (1 - dist / 150)})`
+              : `rgba(5, 150, 105, ${0.15 * (1 - dist / 150)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
       });
 
       animationFrameId = requestAnimationFrame(draw);
