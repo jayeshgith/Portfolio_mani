@@ -9,9 +9,27 @@ interface Project {
   emoji: string;
   link?: string;
   github?: string;
+  githubFrontend?: string;
+  githubBackend?: string;
 }
 
 const projects: Project[] = [
+  {
+    title: "DocuVerse AI",
+    type: "AI Document Extraction",
+    description:
+      "An AI-powered document extraction and analysis platform featuring automatic classification, hybrid OCR extraction, and an interactive chat assistant.",
+    tech: ["React", "FastAPI", "PyTesseract", "Ollama", "OCR"],
+    features: [
+      "Automated document classification using custom OCR processing pipelines",
+      "Hybrid data extraction utilizing FastAPI backend engine capabilities",
+      "Interactive chat assistant powered by Ollama for document queries"
+    ],
+    emoji: "📄",
+    link: "https://pdf-extraction-tool-three.vercel.app/login",
+    githubFrontend: "https://github.com/jayeshgith/pdf_extraction_tool",
+    githubBackend: "https://github.com/jayeshgith/docuverse-ai-backend",
+  },
   {
     title: "Fabinex",
     type: "Personal Finance",
@@ -164,17 +182,47 @@ export default function Projects() {
                     <i className="fas fa-external-link-alt text-[0.6rem]" />
                   </a>
                 )}
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-white/5 bg-white/[0.02] text-[0.7rem] font-extrabold uppercase tracking-wider text-slate-300 hover:bg-white/5 hover:border-white/10 hover:text-white transition-all duration-300 ml-auto cursor-pointer"
-                  >
-                    <i className="fab fa-github text-[0.75rem]" />
-                    <span>Repository</span>
-                  </a>
-                )}
+                
+                {/* Spacer to push repositories to the right */}
+                {!project.link && <div className="mr-auto" />}
+
+                <div className="flex items-center gap-2 ml-auto">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-white/5 bg-white/[0.02] text-[0.7rem] font-extrabold uppercase tracking-wider text-slate-300 hover:bg-white/5 hover:border-white/10 hover:text-white transition-all duration-300 cursor-pointer"
+                    >
+                      <i className="fab fa-github text-[0.75rem]" />
+                      <span>Repository</span>
+                    </a>
+                  )}
+                  {project.githubFrontend && (
+                    <a
+                      href={project.githubFrontend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-white/5 bg-white/[0.02] text-[0.7rem] font-extrabold uppercase tracking-wider text-slate-300 hover:bg-white/5 hover:border-white/10 hover:text-white transition-all duration-300 cursor-pointer"
+                      title="Frontend Repository"
+                    >
+                      <i className="fab fa-github text-[0.75rem]" />
+                      <span>Frontend</span>
+                    </a>
+                  )}
+                  {project.githubBackend && (
+                    <a
+                      href={project.githubBackend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-white/5 bg-white/[0.02] text-[0.7rem] font-extrabold uppercase tracking-wider text-slate-300 hover:bg-white/5 hover:border-white/10 hover:text-white transition-all duration-300 cursor-pointer"
+                      title="Backend Repository"
+                    >
+                      <i className="fab fa-github text-[0.75rem]" />
+                      <span>Backend</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}
