@@ -14,15 +14,15 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Fabinex",
-    type: "Full-Stack App",
+    type: "Personal Finance",
     description:
-      "A comprehensive finance dashboard that enables users to track incomes, expenses, and cashflow details.",
+      "A responsive web application to manage personal/family finances, including income-expense tracking and cashflow insights.",
     tech: ["Next.js", "MongoDB", "Stripe", "Zod", "NextAuth"],
     features: [
-      "Secure user signup, login, and profile tracking",
-      "Interactive analytics charts for monthly summaries",
-      "Dynamic receipt file uploads and automated alerts",
-      "Stripe integration with checkout sandbox simulation"
+      "Secure user authentication and multi-tenant session locks",
+      "Interactive data charts showcasing monthly transaction summaries",
+      "Dynamic receipt storage layers and automated status updates",
+      "Stripe payment gateway sandbox pipeline integrations"
     ],
     emoji: "💰",
     link: "https://fab-inex.vercel.app/",
@@ -32,46 +32,31 @@ const projects: Project[] = [
     title: "Kabaddi Scorecard Automation",
     type: "AI & Computer Vision",
     description:
-      "A scoring pipeline using camera inputs to detect custom hand gestures and update tournament tables in real time.",
+      "A scorecard automation system using camera inputs to detect custom hand gestures and update tournament tables in real time.",
     tech: ["Python", "MediaPipe", "WebSocket", "JavaScript"],
     features: [
-      "Real-time hand gesture extraction using MediaPipe models",
-      "WebSocket stream relaying coordinates to clients instantly",
-      "Dynamic browser dashboard showing scoreboard states"
+      "Real-time hand gesture coordinate extraction using MediaPipe models",
+      "Full-duplex WebSocket stream feeding client terminals instantly",
+      "Dynamic browser overlays updating scores with zero-lag parity"
     ],
     emoji: "🏆",
     link: "https://github.com/jayeshgith",
     github: "https://github.com/jayeshgith",
   },
   {
-    title: "REST API Architecture",
+    title: "REST API Project",
     type: "Backend API",
     description:
-      "Robust post management backend demonstrating structured REST design principles and data security protocols.",
+      "A simple, full-stack application demonstrating basic CRUD operations using a RESTful Post Management API architecture.",
     tech: ["Node.js", "Express", "MongoDB", "Mongoose"],
     features: [
-      "Clean modular router endpoints with standard responses",
-      "Strict data validation schemas on requests to block SQL/JSON injection",
-      "Global Express error handling middlewares"
+      "Decoupled route endpoints with clean JSON response shapes",
+      "Advanced query sanitization filters blocking injection threats",
+      "Global server exception capture and routing error handlers"
     ],
     emoji: "🔌",
     link: "https://github.com/jayeshgith/REST_API_Project",
     github: "https://github.com/jayeshgith/REST_API_Project",
-  },
-  {
-    title: "My Portfolio",
-    type: "Web Design",
-    description:
-      "Fully responsive developer portfolio showcasing projects, credentials, and interactive interfaces.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "CSS3"],
-    features: [
-      "Animated background mesh blobs and layout grid alignment",
-      "Floating island glass navbar responding dynamically to scrolls",
-      "Clean metadata SEO setup with responsive layout compatibility"
-    ],
-    emoji: "🌐",
-    link: "https://my-site-newpage.vercel.app/",
-    github: "https://github.com/jayeshgith/Portfolio_mani",
   },
 ];
 
@@ -87,10 +72,10 @@ export default function Projects() {
         <div className="mx-auto max-w-4xl space-y-4 text-center">
           <p className="section-overline">Featured Projects</p>
           <h2 className="section-title">
-            Real-world applications built with modern tools.
+            Enterprise products and engineering showcases.
           </h2>
           <p className="section-description">
-            Full-stack projects demonstrating end-to-end development, from client interface designs to backend business layers and persistent storage schemas.
+            Production-grade systems demonstrating clean architectural structures, backend endpoints orchestration, and robust database validation mappings.
           </p>
         </div>
 
@@ -99,69 +84,84 @@ export default function Projects() {
           {projects.map((project, index) => (
             <article
               key={index}
-              className="glass-card rounded-[2rem] p-6 lg:p-8 flex flex-col justify-between border border-white/5 relative group"
+              className="glass-card rounded-[2rem] border border-white/5 overflow-hidden flex flex-col justify-between relative group hover:border-emerald-500/20"
             >
               <div>
-                {/* Upper block */}
-                <div className="flex items-center justify-between gap-4 mb-6">
-                  <div className="flex items-center gap-3.5">
-                    <div className="h-11 w-11 rounded-2xl bg-gradient-to-tr from-emerald-500/10 to-teal-500/20 text-xl flex items-center justify-center shrink-0 border border-emerald-500/10">
-                      {project.emoji}
-                    </div>
-                    <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-emerald-400 transition-colors duration-300">
-                      {project.title}
-                    </h3>
+                {/* Mock Window Header */}
+                <div className="bg-[#04060d] border-b border-white/5 px-5 py-3.5 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
                   </div>
-                  <span className="rounded-full bg-white/5 border border-white/5 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-slate-400">
-                    {project.type}
+                  <span className="text-[0.62rem] font-mono text-slate-500 tracking-widest uppercase">
+                    {project.title.toLowerCase().replace(/\s+/g, '_')}.exe
                   </span>
+                  <div className="w-8" />
                 </div>
 
-                <p className="text-slate-400 leading-relaxed text-sm mb-6">
-                  {project.description}
-                </p>
-
-                {/* Tech Badges */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full bg-emerald-500/5 px-3 py-1 text-[0.7rem] font-bold text-emerald-300 border border-emerald-500/10 shadow-sm"
-                    >
-                      {t}
+                <div className="p-6 lg:p-8">
+                  {/* Title block */}
+                  <div className="flex items-center justify-between gap-4 mb-5">
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-emerald-500/10 to-teal-500/20 text-lg flex items-center justify-center shrink-0 border border-emerald-500/10">
+                        {project.emoji}
+                      </div>
+                      <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-emerald-400 transition-colors duration-300 font-outfit">
+                        {project.title}
+                      </h3>
+                    </div>
+                    <span className="rounded-full bg-white/5 border border-white/5 px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-widest text-slate-400">
+                      {project.type}
                     </span>
-                  ))}
-                </div>
+                  </div>
 
-                {/* Features Checklist */}
-                <div className="rounded-2xl bg-white/[0.01] p-5.5 border border-white/5 mb-8">
-                  <p className="text-[0.65rem] font-bold uppercase tracking-widest text-emerald-400 mb-3">
-                    Architectural Features
+                  <p className="text-slate-400 leading-relaxed text-sm mb-6">
+                    {project.description}
                   </p>
-                  <ul className="space-y-2.5">
-                    {project.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2.5 text-xs text-slate-400 leading-normal">
-                        <span className="flex h-4.5 w-4.5 items-center justify-center rounded-full bg-emerald-500/10 text-[0.5rem] text-emerald-400 shrink-0 border border-emerald-500/10 mt-0.5">
-                          <i className="fas fa-check" />
-                        </span>
-                        <span>{feature}</span>
-                      </li>
+
+                  {/* Tech Badges */}
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full bg-emerald-500/5 px-3 py-1 text-[0.7rem] font-bold text-emerald-300 border border-emerald-500/10 shadow-sm"
+                      >
+                        {t}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
+
+                  {/* Features Checklist */}
+                  <div className="rounded-2xl bg-white/[0.01] p-5 border border-white/5">
+                    <p className="text-[0.65rem] font-extrabold uppercase tracking-widest text-emerald-400 mb-3.5">
+                      Operational Integrity
+                    </p>
+                    <ul className="space-y-3">
+                      {project.features.map((feature, fIdx) => (
+                        <li key={fIdx} className="flex items-start gap-3 text-xs text-slate-400 leading-normal">
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[0.52rem] text-emerald-400 shrink-0 shadow-sm mt-0.5 transition-transform duration-300 group-hover:scale-105">
+                            <i className="fas fa-check" />
+                          </span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex items-center gap-4 border-t border-white/5 pt-5 mt-auto">
+              <div className="flex items-center gap-3 px-6 lg:px-8 py-5 border-t border-white/5 bg-[#030408]/30">
                 {project.link && (
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-300 font-bold text-xs uppercase tracking-wider group/link cursor-pointer"
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-emerald-500/20 bg-emerald-500/5 text-[0.7rem] font-extrabold uppercase tracking-wider text-emerald-300 hover:bg-emerald-500/10 hover:border-emerald-500/35 transition-all duration-300 cursor-pointer"
                   >
-                    <span>Live Preview</span>
-                    <i className="fas fa-arrow-right text-[0.65rem] transition-transform duration-300 group-hover/link:translate-x-1" />
+                    <span>Launch App</span>
+                    <i className="fas fa-external-link-alt text-[0.6rem]" />
                   </a>
                 )}
                 {project.github && (
@@ -169,10 +169,10 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors duration-300 font-bold text-xs uppercase tracking-wider ml-auto cursor-pointer"
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-white/5 bg-white/[0.02] text-[0.7rem] font-extrabold uppercase tracking-wider text-slate-300 hover:bg-white/5 hover:border-white/10 hover:text-white transition-all duration-300 ml-auto cursor-pointer"
                   >
-                    <i className="fab fa-github text-sm" />
-                    <span>Source</span>
+                    <i className="fab fa-github text-[0.75rem]" />
+                    <span>Repository</span>
                   </a>
                 )}
               </div>

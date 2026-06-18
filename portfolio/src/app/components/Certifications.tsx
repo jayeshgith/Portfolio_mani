@@ -24,21 +24,21 @@ const certifications: Certification[] = [
     desc: "Completed hands-on practical training building enterprise web apps, integrating APIs, and managing databases.",
   },
   {
-    name: "AI Integration for Predictive Maintenance",
+    name: "AI Integration for Improving Sensor Data Quality in Predictive Maintenance",
     emoji: "🧠",
     org: "IBM",
     period: "2024 - 2025",
     desc: "Learned predictive analysis strategies, anomaly detection, and data ingestion architectures using AI tools.",
   },
   {
-    name: "JavaScript Programming Masterclass",
+    name: "JavaScript Programming Certification Course",
     emoji: "⚡",
     org: "Udemy",
     period: "2025",
     desc: "Deep-dive course covering JavaScript ES6+, async architectures, promises, closures, and DOM patterns.",
   },
   {
-    name: "React.JS Core Training",
+    name: "React.JS Crash Course: The Complete Course for Beginners",
     emoji: "⚛️",
     org: "Udemy",
     period: "2025",
@@ -66,7 +66,7 @@ export default function Certifications() {
         <div className="mx-auto max-w-4xl space-y-4 text-center">
           <p className="section-overline">Certifications</p>
           <h2 className="section-title">
-            Internships, training, and industry credentials.
+            Professional training & credentials.
           </h2>
           <p className="section-description">
             Validated credentials demonstrating commitment to continuous architectural learning and full-stack code validation.
@@ -78,27 +78,31 @@ export default function Certifications() {
           {certifications.map((cert, index) => (
             <article
               key={index}
-              className="glass-card rounded-[1.75rem] p-6.5 flex flex-col justify-between border border-white/5 hover:border-emerald-500/15 group"
+              className="glass-card rounded-[2rem] p-6 flex flex-col justify-between border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/25 relative group overflow-hidden"
             >
+              {/* Badge visual background glow */}
+              <div className="absolute -right-8 -top-8 w-24 h-24 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-full blur-xl pointer-events-none transition-all duration-500 group-hover:scale-150" />
+
               <div>
-                <div className="flex items-center justify-between gap-4 mb-5">
-                  <div className="h-10 w-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <div className="flex items-center gap-3.5 mb-5">
+                  <div className="h-12 w-12 rounded-2xl bg-[#050711] border border-white/5 flex items-center justify-center text-xl shrink-0 shadow-inner group-hover:border-emerald-500/20 group-hover:scale-105 transition-all duration-300">
                     {cert.emoji}
                   </div>
-                  <span className="rounded-full bg-white/5 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-slate-400 border border-white/5 truncate max-w-[150px]">
-                    {cert.org}
-                  </span>
+                  <div className="min-w-0">
+                    <span className="text-[0.62rem] font-black uppercase tracking-widest text-emerald-400">
+                      {cert.org}
+                    </span>
+                    {cert.period && (
+                      <p className="text-[0.65rem] text-slate-500 font-bold uppercase mt-0.5 tracking-wider">
+                        {cert.period}
+                      </p>
+                    )}
+                  </div>
                 </div>
                 
-                <h3 className="text-base font-bold text-white tracking-tight leading-snug mb-2 group-hover:text-emerald-400 transition-colors duration-300">
+                <h3 className="text-base font-bold text-white tracking-tight leading-snug mb-3 group-hover:text-emerald-300 transition-colors duration-300 font-outfit">
                   {cert.name}
                 </h3>
-                
-                {cert.period && (
-                  <p className="text-[0.68rem] font-extrabold uppercase tracking-widest text-emerald-400 mb-3">
-                    {cert.period}
-                  </p>
-                )}
                 
                 <p className="text-slate-400 text-xs leading-relaxed">
                   {cert.desc}

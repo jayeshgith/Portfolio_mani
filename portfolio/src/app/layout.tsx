@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AntigravityBackground } from "./components/AntigravityEffects";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,16 +12,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Manish Kunthoor | Full-Stack Developer",
   description:
-    "Entry-level Full-Stack Developer with hands-on experience in Next.js, React, Node.js, and MongoDB. Specializing in scalable web applications, REST APIs, and responsive design.",
+    "Entry-level Full-Stack Developer with hands-on experience in Next.js, React, Node.js, and MongoDB. Specializing in building scalable web applications, REST APIs, and responsive UI layouts.",
   keywords: [
     "Manish Kunthoor",
-    "Full Stack Developer",
+    "Full-Stack Developer",
     "Next.js",
-    "React Developer",
-    "Node.js",
-    "MongoDB",
+    "React.js Developer",
+    "Node.js Developer",
+    "MongoDB Developer",
     "Portfolio",
-    "Web Developer",
+    "Web Developer"
   ],
   openGraph: {
     title: "Manish Kunthoor | Full-Stack Developer",
@@ -44,7 +45,11 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <div className="noise-overlay" />
+        <AntigravityBackground />
+        {children}
+      </body>
     </html>
   );
 }

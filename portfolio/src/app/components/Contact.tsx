@@ -1,41 +1,42 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { MagneticContainer } from "./AntigravityEffects";
 
 const CONTACT_INFO = [
   {
     icon: "fas fa-envelope",
-    label: "Email",
+    label: "Secure Email",
     value: "manishkunthoor@gmail.com",
     href: "mailto:manishkunthoor@gmail.com",
-    color: "#38bdf8",
-    hoverGlow: "hover:border-sky-500/20 hover:shadow-sky-500/5",
-  },
-  {
-    icon: "fas fa-phone",
-    label: "Phone",
-    value: "+91 7019974493",
-    href: "tel:+917019974493",
-    color: "#34d399",
+    color: "#059669",
     hoverGlow: "hover:border-emerald-500/20 hover:shadow-emerald-500/5",
   },
   {
-    icon: "fab fa-linkedin-in",
-    label: "LinkedIn",
-    value: "manish-kunthoor",
-    href: "https://www.linkedin.com/in/manish-kunthoor-99ba00279",
-    color: "#0ea5e9",
-    external: true,
+    icon: "fas fa-phone",
+    label: "Direct Line",
+    value: "+91 7019974493",
+    href: "tel:+917019974493",
+    color: "#2563eb",
     hoverGlow: "hover:border-blue-500/20 hover:shadow-blue-500/5",
   },
   {
+    icon: "fab fa-linkedin-in",
+    label: "LinkedIn Portal",
+    value: "manish-kunthoor",
+    href: "https://www.linkedin.com/in/manish-kunthoor-99ba00279",
+    color: "#4f46e5",
+    external: true,
+    hoverGlow: "hover:border-indigo-500/20 hover:shadow-indigo-500/5",
+  },
+  {
     icon: "fab fa-github",
-    label: "GitHub",
+    label: "GitHub Source",
     value: "jayeshgith",
     href: "https://github.com/jayeshgith",
-    color: "#a78bfa",
+    color: "#f43f5e",
     external: true,
-    hoverGlow: "hover:border-purple-500/20 hover:shadow-purple-500/5",
+    hoverGlow: "hover:border-rose-500/20 hover:shadow-rose-500/5",
   },
 ];
 
@@ -74,15 +75,15 @@ export default function Contact() {
       setTimeout(() => {
         setFormData(initialForm);
         setSubmitted(false);
-      }, 2500);
-    }, 1000);
+      }, 3000);
+    }, 1200);
   };
 
   return (
     <section id="contact" className="py-28 relative">
       
       {/* Decorative blurred background blob */}
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] bg-violet-500/5 rounded-full blur-[130px] -z-10 pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] bg-[#059669]/5 rounded-full blur-[130px] -z-10 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         
@@ -90,10 +91,10 @@ export default function Contact() {
         <div className="mx-auto max-w-3xl space-y-4 text-center">
           <p className="section-overline">Contact</p>
           <h2 className="section-title">
-            Let&apos;s build something memorable together.
+            Get in touch.
           </h2>
           <p className="section-description">
-            Feel free to reach out for internship programs, full-stack projects, or custom web design opportunities.
+            Feel free to reach out to discuss job opportunities, project collaborations, or technical inquiries.
           </p>
         </div>
 
@@ -103,101 +104,116 @@ export default function Contact() {
           {/* Left Block: Form Container */}
           <form
             onSubmit={handleSubmit}
-            className="glass-card rounded-[2rem] p-8 border border-white/5 relative min-h-[420px] flex flex-col justify-center"
+            className="glass-card rounded-[2rem] p-8 border border-white/5 relative min-h-[440px] flex flex-col justify-center"
           >
             {submitted ? (
               <div className="space-y-4 text-center py-12 animate-scale-in">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-500/10 border-2 border-emerald-500/20 text-emerald-400 animate-glow">
-                  <i className="fas fa-check text-3xl" />
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 animate-glow shadow-[0_0_25px_rgba(5,150,105,0.2)]">
+                  <i className="fas fa-check text-3xl animate-bounce" />
                 </div>
-                <h3 className="text-2xl font-bold text-white tracking-tight">
-                  Message Transmitted!
+                <h3 className="text-2xl font-bold text-white tracking-tight font-outfit">
+                  Message Sent
                 </h3>
-                <p className="text-slate-400 text-sm max-w-sm mx-auto leading-relaxed">
-                  Thanks for reaching out, Manish. Your query has been logged. I will follow up shortly.
+                <p className="text-slate-400 text-xs max-w-sm mx-auto leading-relaxed font-medium">
+                  Your message has been sent successfully. Manish will get back to you shortly.
                 </p>
               </div>
             ) : (
-              <div className="space-y-6">
+              <div className="space-y-8">
                 
                 <div className="grid gap-6 sm:grid-cols-2">
-                  <label className="block">
-                    <span className="text-[0.68rem] font-bold uppercase tracking-widest text-slate-500 pl-1">
-                      Your Name
-                    </span>
+                  <div className="relative w-full group">
                     <input
                       id="from_name"
                       type="text"
                       value={formData.from_name}
                       onChange={handleChange}
                       required
-                      placeholder="e.g. John Doe"
-                      className="contact-input mt-2"
+                      placeholder=" "
+                      className="block w-full py-3.5 px-1 text-sm text-white bg-transparent border-0 border-b border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-emerald-400 transition-all duration-300 peer"
                     />
-                  </label>
-                  <label className="block">
-                    <span className="text-[0.68rem] font-bold uppercase tracking-widest text-slate-500 pl-1">
-                      Email Address
-                    </span>
+                    <label
+                      htmlFor="from_name"
+                      className="absolute text-[0.7rem] font-bold uppercase tracking-widest text-slate-500 duration-300 transform -translate-y-7 scale-75 top-3.5 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-emerald-400"
+                    >
+                      Your Name
+                    </label>
+                  </div>
+                  
+                  <div className="relative w-full group">
                     <input
                       id="from_email"
                       type="email"
                       value={formData.from_email}
                       onChange={handleChange}
                       required
-                      placeholder="e.g. john@example.com"
-                      className="contact-input mt-2"
+                      placeholder=" "
+                      className="block w-full py-3.5 px-1 text-sm text-white bg-transparent border-0 border-b border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-emerald-400 transition-all duration-300 peer"
                     />
-                  </label>
+                    <label
+                      htmlFor="from_email"
+                      className="absolute text-[0.7rem] font-bold uppercase tracking-widest text-slate-500 duration-300 transform -translate-y-7 scale-75 top-3.5 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-emerald-400"
+                    >
+                      Email Address
+                    </label>
+                  </div>
                 </div>
 
-                <label className="block">
-                  <span className="text-[0.68rem] font-bold uppercase tracking-widest text-slate-500 pl-1">
-                    Subject Line
-                  </span>
+                <div className="relative w-full group">
                   <input
                     id="subject"
                     type="text"
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. Collaboration Opportunity"
-                    className="contact-input mt-2"
+                    placeholder=" "
+                    className="block w-full py-3.5 px-1 text-sm text-white bg-transparent border-0 border-b border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-emerald-400 transition-all duration-300 peer"
                   />
-                </label>
+                  <label
+                    htmlFor="subject"
+                    className="absolute text-[0.7rem] font-bold uppercase tracking-widest text-slate-500 duration-300 transform -translate-y-7 scale-75 top-3.5 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-emerald-400"
+                  >
+                    Subject Line
+                  </label>
+                </div>
 
-                <label className="block">
-                  <span className="text-[0.68rem] font-bold uppercase tracking-widest text-slate-500 pl-1">
-                    Message Detail
-                  </span>
+                <div className="relative w-full group">
                   <textarea
                     id="message"
-                    rows={5}
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="Describe your project, timeline, or query..."
-                    className="contact-input mt-2 resize-none"
+                    placeholder=" "
+                    className="block w-full py-3.5 px-1 text-sm text-white bg-transparent border-0 border-b border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-emerald-400 transition-all duration-300 peer resize-none"
                   />
-                </label>
+                  <label
+                    htmlFor="message"
+                    className="absolute text-[0.7rem] font-bold uppercase tracking-widest text-slate-500 duration-300 transform -translate-y-7 scale-75 top-3.5 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-emerald-400"
+                  >
+                    Message Details
+                  </label>
+                </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="btn-primary w-full rounded-full px-6 py-4.5 text-sm font-bold flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
-                >
-                  {loading ? (
-                    <>
-                      <span>Sending...</span>
-                      <i className="fas fa-spinner animate-spin text-sm" />
-                    </>
-                  ) : (
-                    <>
-                      <span>Send Message</span>
-                      <i className="fas fa-paper-plane text-xs" />
-                    </>
-                  )}
-                </button>
+                <MagneticContainer className="w-full">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="btn-primary w-full rounded-2xl px-6 py-4 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  >
+                    {loading ? (
+                      <>
+                        <span>Sending Message...</span>
+                        <i className="fas fa-spinner animate-spin text-sm" />
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <i className="fas fa-paper-plane text-xs animate-pulse" />
+                      </>
+                    )}
+                  </button>
+                </MagneticContainer>
               </div>
             )}
           </form>
@@ -207,42 +223,43 @@ export default function Contact() {
             <div className="space-y-6">
               <div>
                 <p className="text-[0.68rem] font-bold uppercase tracking-widest text-emerald-400">
-                  Quick Connect
+                  Quick Access
                 </p>
-                <h3 className="mt-4 text-xl font-bold text-white tracking-tight leading-snug">
-                  Let&apos;s build web structures together.
+                <h3 className="mt-4 text-xl font-bold text-white tracking-tight leading-snug font-outfit">
+                  Let&apos;s build responsive web applications.
                 </h3>
-                <p className="mt-3 text-slate-400 text-xs leading-relaxed">
+                <p className="mt-3 text-slate-400 text-xs leading-relaxed font-medium">
                   I typically respond to inquiries within 24 hours. Connect with me directly through social handles or contact lines.
                 </p>
               </div>
 
               {/* Action Info List */}
-              <div className="space-y-3.5">
+              <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-1">
                 {CONTACT_INFO.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noreferrer noopener" : undefined}
-                    className={`contact-info-card group/card ${item.hoverGlow}`}
-                  >
-                    <span
-                      className="flex h-10 w-10 items-center justify-center rounded-xl text-sm shrink-0 border border-white/5 group-hover/card:scale-105 transition-transform duration-300"
-                      style={{
-                        backgroundColor: `${item.color}12`,
-                        color: item.color,
-                      }}
+                  <MagneticContainer key={item.label} className="w-full">
+                    <a
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noreferrer noopener" : undefined}
+                      className={`contact-info-card group/card ${item.hoverGlow}`}
                     >
-                      <i className={item.icon} />
-                    </span>
-                    <div className="min-w-0">
-                      <p className="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500 mb-0.5">{item.label}</p>
-                      <p className="text-sm font-bold text-white truncate leading-none">
-                        {item.value}
-                      </p>
-                    </div>
-                  </a>
+                      <span
+                        className="flex h-10 w-10 items-center justify-center rounded-xl text-sm shrink-0 border border-white/5 group-hover/card:scale-105 transition-transform duration-300"
+                        style={{
+                          backgroundColor: `${item.color}12`,
+                          color: item.color,
+                        }}
+                      >
+                        <i className={item.icon} />
+                      </span>
+                      <div className="min-w-0">
+                        <p className="text-[0.65rem] font-extrabold uppercase tracking-widest text-slate-500 mb-0.5">{item.label}</p>
+                        <p className="text-xs font-bold text-white truncate leading-none">
+                          {item.value}
+                        </p>
+                      </div>
+                    </a>
+                  </MagneticContainer>
                 ))}
               </div>
             </div>

@@ -5,53 +5,41 @@ const GITHUB = "https://github.com/jayeshgith";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 py-12">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+    <footer className="border-t border-white/5 py-12 bg-[#020205]/80 relative overflow-hidden">
+      {/* Subtle glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-40 bg-emerald-500/5 rounded-full blur-[80px] -z-10 pointer-events-none" />
+
+      <div className="container mx-auto px-6 max-w-5xl">
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-lg font-bold text-white">
+            <p className="text-base font-black text-white font-outfit tracking-tight">
               <span className="text-emerald-400">&lt;</span>
-              Manish
+              Manish Kunthoor
               <span className="text-emerald-400">/&gt;</span>
             </p>
-            <p className="text-sm text-slate-500 mt-2">
-              © 2026 Manish Kunthoor. Built with Next.js & Tailwind CSS
+            <p className="text-xs text-slate-500 mt-2 font-medium tracking-wide">
+              © {new Date().getFullYear()} • Crafted with Next.js & Tailwind CSS. All rights reserved.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-3 items-center">
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-400 transition hover:border-emerald-400/30 hover:text-emerald-300 hover:bg-emerald-500/10"
-            >
-              <i className="fab fa-linkedin-in mr-2" />
-              LinkedIn
-            </a>
-            <a
-              href={GITHUB}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-400 transition hover:border-emerald-400/30 hover:text-emerald-300 hover:bg-emerald-500/10"
-            >
-              <i className="fab fa-github mr-2" />
-              GitHub
-            </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-400 transition hover:border-emerald-400/30 hover:text-emerald-300 hover:bg-emerald-500/10"
-            >
-              <i className="fas fa-envelope mr-2" />
-              {EMAIL}
-            </a>
-            <a
-              href={`tel:${PHONE}`}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-400 transition hover:border-emerald-400/30 hover:text-emerald-300 hover:bg-emerald-500/10"
-            >
-              <i className="fas fa-phone mr-2" />
-              {PHONE}
-            </a>
+            {[
+              { href: LINKEDIN, icon: "fab fa-linkedin-in", label: "LinkedIn" },
+              { href: GITHUB, icon: "fab fa-github", label: "GitHub" },
+              { href: `mailto:${EMAIL}`, icon: "fas fa-envelope", label: "Email" },
+              { href: `tel:${PHONE}`, icon: "fas fa-phone", label: "Phone" }
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.label !== "Email" && link.label !== "Phone" ? "_blank" : undefined}
+                rel="noreferrer noopener"
+                className="group flex items-center gap-2 rounded-full border border-white/5 bg-white/[0.01] px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-400 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-300 hover:bg-emerald-500/5 hover:-translate-y-0.5"
+              >
+                <i className={`${link.icon} text-slate-500 group-hover:text-emerald-400 transition-colors duration-300`} />
+                <span>{link.label}</span>
+              </a>
+            ))}
           </div>
         </div>
       </div>
