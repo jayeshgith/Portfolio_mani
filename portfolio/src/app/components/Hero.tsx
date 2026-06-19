@@ -38,7 +38,7 @@ const TERMINAL_LINES = [
   '  name: "Manish Kunthoor",',
   '  degree: "BE Computer Science & Engineering",',
   '  training: "Fabsol Bangalore Trainee",',
-  '  coreStack: ["Next.js", "React.js", "Node.js", "MongoDB"],',
+  '  coreStack: ["FastAPI", "React.js", "PyTorch", "Prompt Engineering", "Ollama OCR"],',
   '  motto: "Optimize. Architect. Deliver."',
   '};'
 ];
@@ -111,7 +111,7 @@ export default function Hero() {
             <div className="animate-fade-in">
               <div className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-4 py-1.5 text-[0.72rem] font-bold uppercase tracking-[0.25em] text-emerald-300 shadow-sm shadow-emerald-500/5">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-glow" />
-                Full-Stack Developer
+                AI & Prompt Engineer
               </div>
             </div>
 
@@ -120,7 +120,7 @@ export default function Hero() {
                 Manish Kunthoor
               </h1>
               <p className="max-w-2xl text-slate-400 leading-relaxed text-[1.05rem]">
-                Full-Stack Developer building applications with Next.js, React, Node.js, and MongoDB.
+                AI Engineer building intelligent systems with PyTorch, Ollama, FastAPI, and React.
               </p>
             </div>
 

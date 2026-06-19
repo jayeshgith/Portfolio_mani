@@ -10,22 +10,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Manish Kunthoor | Full-Stack Developer",
+  title: "Manish Kunthoor | AI Engineer",
   description:
-    "Entry-level Full-Stack Developer with hands-on experience in Next.js, React, Node.js, and MongoDB. Specializing in building scalable web applications, REST APIs, and responsive UI layouts.",
+    "AI Engineer and Prompt Engineer specializing in PyTorch, Ollama OCR, FastAPI, and React. Experienced in building intelligent systems, prompt optimization, and AI document extraction solutions.",
   keywords: [
     "Manish Kunthoor",
-    "Full-Stack Developer",
-    "Next.js",
-    "React.js Developer",
-    "Node.js Developer",
-    "MongoDB Developer",
-    "Portfolio",
-    "Web Developer"
+    "AI Engineer",
+    "Prompt Engineer",
+    "Ollama OCR",
+    "DocVerse AI",
+    "FastAPI",
+    "PyTorch",
+    "Portfolio"
   ],
   openGraph: {
-    title: "Manish Kunthoor | Full-Stack Developer",
-    description: "Full-Stack Developer | Next.js | React | Node.js | MongoDB",
+    title: "Manish Kunthoor | AI Engineer",
+    description: "AI Engineer | Prompt Engineer | PyTorch | Ollama OCR | FastAPI",
     type: "website",
   },
 };

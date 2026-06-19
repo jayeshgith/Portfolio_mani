@@ -15,15 +15,15 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "DocuVerse AI",
+    title: "DocVerse AI",
     type: "AI Document Extraction",
     description:
       "An AI-powered document extraction and analysis platform featuring automatic classification, hybrid OCR extraction, and an interactive chat assistant.",
-    tech: ["React", "FastAPI", "PyTesseract", "Ollama", "OCR"],
+    tech: ["React", "FastAPI", "PyTorch", "Ollama OCR", "LLMs"],
     features: [
-      "Automated document classification using custom OCR processing pipelines",
-      "Hybrid data extraction utilizing FastAPI backend engine capabilities",
-      "Interactive chat assistant powered by Ollama for document queries"
+      "Automated document classification using custom PyTorch model pipelines",
+      "Hybrid data extraction utilizing high-performance FastAPI backend engine",
+      "Interactive chat assistant powered by Ollama and custom-crafted prompts for context-aware document queries"
     ],
     emoji: "📄",
     link: "https://pdf-extraction-tool-three.vercel.app/login",

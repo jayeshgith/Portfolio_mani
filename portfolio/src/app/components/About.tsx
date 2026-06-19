@@ -44,7 +44,7 @@ export default function About() {
             
             <div className="space-y-6 text-slate-400 leading-relaxed text-[0.98rem]">
               <p>
-                I build modular, component-driven interfaces using <strong className="text-white font-bold font-outfit">React.js</strong> and <strong className="text-white font-bold font-outfit">Next.js</strong>, with reliable backend endpoints using <strong className="text-white font-bold font-outfit">Node.js</strong>, <strong className="text-white font-bold font-outfit">Express</strong>, and <strong className="text-white font-bold font-outfit">MongoDB</strong>.
+                I build intelligent, component-driven interfaces using <strong className="text-white font-bold font-outfit">React.js</strong> and <strong className="text-white font-bold font-outfit">Next.js</strong>, powered by robust AI-driven backends with <strong className="text-white font-bold font-outfit">FastAPI</strong>, <strong className="text-white font-bold font-outfit">PyTorch</strong>, <strong className="text-white font-bold font-outfit">Ollama OCR</strong>, and custom prompt design.
               </p>
             </div>
 
@@ -52,7 +52,7 @@ export default function About() {
             <div className="mt-8 pt-6 border-t border-white/5">
               <p className="text-[0.68rem] font-extrabold uppercase tracking-widest text-slate-500 mb-4">Toolkit Highlights</p>
               <div className="flex flex-wrap gap-2.5">
-                {["Next.js", "React.js", "Node.js", "MongoDB", "TypeScript", "Express.js", "JavaScript"].map((tech) => (
+                {["PyTorch", "FastAPI", "Ollama OCR", "Prompt Engineering", "React.js", "Next.js", "Python"].map((tech) => (
                   <span
                     key={tech}
                     className="rounded-full bg-emerald-500/5 px-4.5 py-2 text-xs font-bold text-emerald-300 border border-emerald-500/10 shadow-sm transition-all duration-300 hover:bg-emerald-500/10 hover:border-emerald-500/20"
