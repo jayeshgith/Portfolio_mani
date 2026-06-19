@@ -41,15 +41,15 @@ const CONTACT_INFO = [
 ];
 
 interface FormData {
-  from_name: string;
-  from_email: string;
+  company_name: string;
+  company_email: string;
   subject: string;
   message: string;
 }
 
 const initialForm: FormData = {
-  from_name: "",
-  from_email: "",
+  company_name: "",
+  company_email: "",
   subject: "",
   message: "",
 };
@@ -58,6 +58,7 @@ export default function Contact() {
   const [formData, setFormData] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -65,18 +66,32 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate sending message
-    setTimeout(() => {
-      setLoading(false);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
       setSubmitted(true);
-      setTimeout(() => {
-        setFormData(initialForm);
-        setSubmitted(false);
-      }, 3000);
-    }, 1200);
+      setFormData(initialForm);
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send message");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -118,37 +133,37 @@ export default function Contact() {
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="relative w-full group">
                     <input
-                      id="from_name"
+                      id="company_name"
                       type="text"
-                      value={formData.from_name}
+                      value={formData.company_name}
                       onChange={handleChange}
                       required
                       placeholder=" "
                       className="block w-full py-3.5 px-1 text-sm text-white bg-transparent border-0 border-b border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-emerald-400 transition-all duration-300 peer"
                     />
                     <label
-                      htmlFor="from_name"
+                      htmlFor="company_name"
                       className="absolute text-[0.7rem] font-bold uppercase tracking-widest text-slate-500 duration-300 transform -translate-y-7 scale-75 top-3.5 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-emerald-400"
                     >
-                      Your Name
+                      Company Name
                     </label>
                   </div>
                   
                   <div className="relative w-full group">
                     <input
-                      id="from_email"
+                      id="company_email"
                       type="email"
-                      value={formData.from_email}
+                      value={formData.company_email}
                       onChange={handleChange}
                       required
                       placeholder=" "
                       className="block w-full py-3.5 px-1 text-sm text-white bg-transparent border-0 border-b border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-emerald-400 transition-all duration-300 peer"
                     />
                     <label
-                      htmlFor="from_email"
+                      htmlFor="company_email"
                       className="absolute text-[0.7rem] font-bold uppercase tracking-widest text-slate-500 duration-300 transform -translate-y-7 scale-75 top-3.5 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-emerald-400"
                     >
-                      Email Address
+                      Company Email
                     </label>
                   </div>
                 </div>
@@ -167,7 +182,7 @@ export default function Contact() {
                     htmlFor="subject"
                     className="absolute text-[0.7rem] font-bold uppercase tracking-widest text-slate-500 duration-300 transform -translate-y-7 scale-75 top-3.5 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-emerald-400"
                   >
-                    Subject Line
+                    Opportunity / Subject
                   </label>
                 </div>
 
@@ -188,6 +203,10 @@ export default function Contact() {
                     Message Details
                   </label>
                 </div>
+
+                {error && (
+                  <p className="text-red-400 text-xs text-center font-medium">{error}</p>
+                )}
 
                 <MagneticContainer className="w-full">
                   <button
