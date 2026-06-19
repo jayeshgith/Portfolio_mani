@@ -65,12 +65,6 @@ export default function Certifications() {
         {/* Header */}
         <div className="mx-auto max-w-4xl space-y-4 text-center">
           <p className="section-overline">Certifications</p>
-          <h2 className="section-title">
-            Professional training & credentials.
-          </h2>
-          <p className="section-description">
-            Validated credentials demonstrating commitment to continuous architectural learning and full-stack code validation.
-          </p>
         </div>
 
         {/* Card Grid */}

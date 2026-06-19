@@ -90,12 +90,6 @@ export default function Contact() {
         {/* Header */}
         <div className="mx-auto max-w-3xl space-y-4 text-center">
           <p className="section-overline">Contact</p>
-          <h2 className="section-title">
-            Get in touch.
-          </h2>
-          <p className="section-description">
-            Feel free to reach out to discuss job opportunities, project collaborations, or technical inquiries.
-          </p>
         </div>
 
         {/* Content Grid */}
@@ -224,12 +218,6 @@ export default function Contact() {
               <div>
                 <p className="text-[0.68rem] font-bold uppercase tracking-widest text-emerald-400">
                   Quick Access
-                </p>
-                <h3 className="mt-4 text-xl font-bold text-white tracking-tight leading-snug font-outfit">
-                  Let&apos;s build responsive web applications.
-                </h3>
-                <p className="mt-3 text-slate-400 text-xs leading-relaxed font-medium">
-                  I typically respond to inquiries within 24 hours. Connect with me directly through social handles or contact lines.
                 </p>
               </div>
 

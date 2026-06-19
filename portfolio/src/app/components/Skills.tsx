@@ -48,12 +48,6 @@ export default function Skills() {
         {/* Header */}
         <div className="mx-auto max-w-4xl space-y-4 text-center">
           <p className="section-overline">Skills</p>
-          <h2 className="section-title">
-            Technical stack & engineering workflows.
-          </h2>
-          <p className="section-description">
-            Core toolkit indicators covering frontend client layouts, secure API endpoints, and database mapping standards.
-          </p>
         </div>
 
         {/* Content Grid Dashboard */}
@@ -68,9 +62,6 @@ export default function Skills() {
               <h3 className="text-xl font-bold text-white tracking-tight pt-2 font-outfit">
                 Frontend & Web
               </h3>
-              <p className="text-slate-400 text-xs">
-                Libraries and styling frameworks focused on user interaction, state integrity, and display fidelity.
-              </p>
             </div>
 
             <div className="space-y-3">
@@ -104,9 +95,6 @@ export default function Skills() {
               <h3 className="text-xl font-bold text-white tracking-tight pt-2 font-outfit">
                 Backend & Security
               </h3>
-              <p className="text-slate-400 text-xs">
-                Server configurations, session verifications, and relational/no-SQL database endpoints.
-              </p>
             </div>
 
             <div className="space-y-3">
@@ -140,9 +128,6 @@ export default function Skills() {
               <h3 className="text-xl font-bold text-white tracking-tight pt-2 font-outfit">
                 Tools & Traits
               </h3>
-              <p className="text-slate-400 text-xs">
-                Development environments, source code pipelines, and personal engineering traits.
-              </p>
             </div>
 
             <div className="space-y-3">

@@ -58,6 +58,8 @@ html[data-theme="light"], body[data-theme="light"], [data-theme="light"] {
 html {
   scroll-behavior: smooth;
   font-family: "Outfit", sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {

@@ -89,12 +89,6 @@ export default function Projects() {
         {/* Section Title */}
         <div className="mx-auto max-w-4xl space-y-4 text-center">
           <p className="section-overline">Featured Projects</p>
-          <h2 className="section-title">
-            Enterprise products and engineering showcases.
-          </h2>
-          <p className="section-description">
-            Production-grade systems demonstrating clean architectural structures, backend endpoints orchestration, and robust database validation mappings.
-          </p>
         </div>
 
         {/* Project Grid */}

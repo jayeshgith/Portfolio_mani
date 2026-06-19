@@ -116,19 +116,11 @@ export default function Hero() {
             </div>
 
             <div className="space-y-6 animate-slide-up">
-              <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-slate-500">
-                Web App Engineer
-              </p>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-[1.08] tracking-tight text-white font-outfit">
-                Developing{" "}
-                <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-400 bg-clip-text text-transparent">
-                  performance
-                </span>
-                <br />
-                web structures
+                Manish Kunthoor
               </h1>
               <p className="max-w-2xl text-slate-400 leading-relaxed text-[1.05rem]">
-                Entry-level Full-Stack Developer with hands-on experience building robust applications using Next.js, React, Node.js, and MongoDB. Focused on clean modular designs, API integrations, and scalable business logic.
+                Full-Stack Developer building applications with Next.js, React, Node.js, and MongoDB.
               </p>
             </div>
 

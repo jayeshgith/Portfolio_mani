@@ -33,12 +33,6 @@ export default function About() {
         {/* Section Header */}
         <div className="mx-auto max-w-4xl space-y-4 text-center">
           <p className="section-overline">About Me</p>
-          <h2 className="section-title font-outfit">
-            Full-Stack Developer focused on clean architectures.
-          </h2>
-          <p className="section-description">
-            Entry-level Full-Stack Developer with hands-on experience building robust applications using Next.js, React, Node.js, and MongoDB. Completed a 3-month industry training program and designed custom features like image uploads and payment pipelines.
-          </p>
         </div>
 
         {/* Content Layout Grid */}
@@ -48,19 +42,9 @@ export default function About() {
           <div className="glass-card rounded-[2rem] p-8 lg:p-10 border border-white/5 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl" />
             
-            <h3 className="mb-6 text-2xl font-bold text-white tracking-tight font-outfit">
-              Core Profile & Focus
-            </h3>
-            
             <div className="space-y-6 text-slate-400 leading-relaxed text-[0.98rem]">
               <p>
-                I specialize in developing modular, component-driven interfaces using <strong className="text-white font-bold font-outfit">React.js</strong> and <strong className="text-white font-bold font-outfit">Next.js</strong>. My development practices emphasize fluid animations, precise layout structures, and cross-device display parity.
-              </p>
-              <p>
-                On the backend, I design reliable endpoints using <strong className="text-white font-bold font-outfit">Node.js</strong> and <strong className="text-white font-bold font-outfit">Express</strong>, structure database queries inside <strong className="text-white font-bold font-outfit">MongoDB</strong>, and integrate payment layers, keeping security and code validation at the forefront.
-              </p>
-              <p>
-                Recently, I built a <strong className="text-white font-medium font-outfit">Pinterest-like application</strong> featuring secure user authentication, complete CRUD operations, local and remote image uploads, daily money transactional history, and custom API stream integrations.
+                I build modular, component-driven interfaces using <strong className="text-white font-bold font-outfit">React.js</strong> and <strong className="text-white font-bold font-outfit">Next.js</strong>, with reliable backend endpoints using <strong className="text-white font-bold font-outfit">Node.js</strong>, <strong className="text-white font-bold font-outfit">Express</strong>, and <strong className="text-white font-bold font-outfit">MongoDB</strong>.
               </p>
             </div>
 

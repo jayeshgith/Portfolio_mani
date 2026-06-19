@@ -40,12 +40,6 @@ export default function Education() {
         {/* Header */}
         <div className="mx-auto max-w-4xl space-y-4 text-center">
           <p className="section-overline">Education</p>
-          <h2 className="section-title font-outfit">
-            Academic foundation in computing models.
-          </h2>
-          <p className="section-description">
-            Academic pathways focused on data structures, algorithmic efficiency, object-oriented concepts, and information system controls.
-          </p>
         </div>
 
         {/* Timeline track container */}
