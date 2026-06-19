@@ -145,7 +145,7 @@ export default function Contact() {
                       htmlFor="company_name"
                       className="absolute text-[0.7rem] font-bold uppercase tracking-widest text-slate-500 duration-300 transform -translate-y-7 scale-75 top-3.5 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-emerald-400"
                     >
-                      Company Name
+                      Your Name
                     </label>
                   </div>
                   
@@ -163,7 +163,7 @@ export default function Contact() {
                       htmlFor="company_email"
                       className="absolute text-[0.7rem] font-bold uppercase tracking-widest text-slate-500 duration-300 transform -translate-y-7 scale-75 top-3.5 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-emerald-400"
                     >
-                      Company Email
+                      Your Email
                     </label>
                   </div>
                 </div>
